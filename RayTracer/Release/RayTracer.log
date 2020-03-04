@@ -1,0 +1,35 @@
+﻿  Color.cpp
+  SceneObject.cpp
+  Point3.cpp
+  Ray.cpp
+  render_main.cpp
+  Scene.cpp
+  Sphere.cpp
+C:\5607\RayTracer\RayTracer\Ray.cpp(12,8): warning C4101: 'distance': unreferenced local variable
+C:\5607\RayTracer\RayTracer\Sphere.cpp(24,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\Sphere.cpp(27,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\Sphere.cpp(36,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\Sphere.cpp(40,54): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Vector3.cpp
+  ViewWindow.cpp
+C:\5607\RayTracer\RayTracer\Sphere.cpp(41,55): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\ViewWindow.cpp(24,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\ViewWindow.cpp(27,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\ViewWindow.cpp(27,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\ViewWindow.cpp(28,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\ViewWindow.cpp(28,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\ViewWindow.cpp(29,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\ViewWindow.cpp(29,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\ViewWindow.cpp(30,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\ViewWindow.cpp(30,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\ViewWindow.cpp(34,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\ViewWindow.cpp(35,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\ViewWindow.cpp(37,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\ViewWindow.cpp(38,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\ViewWindow.cpp(43,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\5607\RayTracer\RayTracer\ViewWindow.cpp(43,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 415 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  RayTracer.vcxproj -> C:\5607\RayTracer\Release\RayTracer.exe
