@@ -1,0 +1,15 @@
+*.pdf
+.vs/*
+*.obj
+Release/*
+Release/
+Release
+Debug/*
+Debug/
+Debug
+RayTracer/Build/
+RayTracer/build/
+RayTracer/Debug/
+RayTracer/Release/
+*.rc
+*.zip
