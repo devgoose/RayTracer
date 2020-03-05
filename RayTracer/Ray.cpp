@@ -59,9 +59,9 @@ Color Ray::TraceRay(const Ray& ray, const Scene& scene) {
 Color Ray::ShadeRay(const Point3& point, const SceneObject* obj, const Scene& scene) {
 	Color final_color;
 
-	Material material = obj->getMaterial();
+	Material* material = scene.getMaterial(obj->getMaterialIndex());
 
-	Color ambient_component = material.getDiffuse() * material.getAmbientCoef();
+	Color ambient_component = material->getDiffuse() * material->getAmbientCoef();
 
 	// Loop through every light
 	for (int i = 0; i < scene.getNumLights(); i++) {
@@ -143,14 +143,14 @@ Color Ray::ShadeRay(const Point3& point, const SceneObject* obj, const Scene& sc
 		}
 		// float shadow_flag = 1;
 		Color diffuse_component = 
-			material.getDiffuse() *
-			material.getDiffuseCoef() * 
+			material->getDiffuse() *
+			material->getDiffuseCoef() * 
 			std::max((float)0.0, normal.dot(light_dir));
 
 		Color specular_component =
-			material.getSpecular() *
-			material.getSpecularCoef() *
-			pow(std::max((float)0, normal.dot(halfway)), material.getExponent());
+			material->getSpecular() *
+			material->getSpecularCoef() *
+			pow(std::max((float)0, normal.dot(halfway)), material->getExponent());
 
 
 		final_color = final_color + (light->getColor() * (diffuse_component + specular_component) * shadow_flag * attenuation_flag);

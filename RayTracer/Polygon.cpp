@@ -1,26 +1,28 @@
 
 #include "Polygon.h"
 
-Polygon::Polygon(int v1, int v2, int v3, const Material& color) {
+Polygon::Polygon(int v1, int v2, int v3, const int mtl_index_, const int tex_index_) {
 	vertex_indices.push_back(v1);
 	vertex_indices.push_back(v2);
 	vertex_indices.push_back(v3);
-	mtlcolor = color;
+	mtl_index = mtl_index_;
+	tex_index = tex_index_;
 	isShaded = false;
 }
 
-Polygon::Polygon(int v1, int v2, int v3, int t1, int t2, int t3, const Material& color) {
+Polygon::Polygon(int v1, int v2, int v3, int t1, int t2, int t3, const int mtl_index_, const int tex_index_) {
 	vertex_indices.push_back(v1);
 	vertex_indices.push_back(v2);
 	vertex_indices.push_back(v3);
 	text_indices.push_back(t1);
 	text_indices.push_back(t2);
 	text_indices.push_back(t3);
-	mtlcolor = color;
+	mtl_index = mtl_index_;
+	tex_index = tex_index_;
 	isShaded = true;
 }
 
-Polygon::Polygon(int v1, int v2, int v3, int t1, int t2, int t3, int n1, int n2, int n3, const Material& color) {
+Polygon::Polygon(int v1, int v2, int v3, int t1, int t2, int t3, int n1, int n2, int n3, const int mtl_index_, const int tex_index_) {
 	vertex_indices.push_back(v1);
 	vertex_indices.push_back(v2);
 	vertex_indices.push_back(v3);
@@ -30,7 +32,8 @@ Polygon::Polygon(int v1, int v2, int v3, int t1, int t2, int t3, int n1, int n2,
 	normal_indices.push_back(n1);
 	normal_indices.push_back(n2);
 	normal_indices.push_back(n3);
-	mtlcolor = color;
+	mtl_index = mtl_index_;
+	tex_index = tex_index_;
 	isShaded = true;
 }
 

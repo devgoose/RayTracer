@@ -13,15 +13,25 @@ to something like a cylinder, cube, etc.
 class SceneObject
 {
 protected:
-	Point3 pos;
-	Material mtlcolor;
+	int mtl_index;
+	int tex_index;
+
 public:
-	SceneObject() { pos = Point3(); mtlcolor = Material(); }
+	SceneObject();
 
 	SceneObject(const SceneObject& obj);
 
-	Point3 getPos() const { return pos; }
-	Material getMaterial() const { return mtlcolor; }
+	SceneObject(const int m) { mtl_index = m; tex_index = -1; }
+
+	SceneObject(const int m, const int t) { mtl_index = m; tex_index = t; }
+
+	int getTextureIndex() const { return tex_index; }
+	int getMaterialIndex() const { return mtl_index; }
+
+	void setTextureIndex(const int tex_index_);
+	void setMaterialIndex(const int mtl_index_);
+
+	bool isTextured();
 
 	virtual bool Intersect(const Ray& ray, Point3* intersection, const Scene& scene) = 0;
 	virtual Vector3 getNormal(const Point3& point, const Scene& scene) const = 0;

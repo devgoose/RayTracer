@@ -21,11 +21,11 @@ private:
 
 public:
 	// Only vertex indices constructor
-	Polygon(int v1, int v2, int v3, const Material& color);
+	Polygon(int v1, int v2, int v3, const int mtl_index_, const int tex_index_);
 	// Vertex and texture indices
-	Polygon(int v1, int v2, int v3, int t1, int t2, int t3, const Material& color);
+	Polygon(int v1, int v2, int v3, int t1, int t2, int t3, const int mtl_index_, const int tex_index_);
 	// Vertex, texture, and normal
-	Polygon(int v1, int v2, int v3, int t1, int t2, int t3, int n1, int n2, int n3, const Material& color);
+	Polygon(int v1, int v2, int v3, int t1, int t2, int t3, int n1, int n2, int n3, const int mtl_index_, const int tex_index_);
 	
 	// Set texture indices
 	void setTextIndices(int t1, int t2, int t3);

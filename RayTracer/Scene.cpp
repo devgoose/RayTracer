@@ -16,20 +16,19 @@ using namespace std;
 #include "DirectionalLight.h"
 
 Scene::~Scene() {
-	for (unsigned int i = 0; i < objects.size(); i++) {
-		delete objects[i];
-	}
-	for (unsigned int i = 0; i < lights.size(); i++) {
-		delete lights[i];
-	}
-	for (unsigned int i = 0; i < vertexes.size(); i++) {
-		delete vertexes[i];
-	}
-	for (unsigned int i = 0; i < normals.size(); i++) {
-		delete normals[i];
-	}
-	for (unsigned int i = 0; i < texcoords.size(); i++) {
-		delete texcoords[i];
+	deallocate_vector(objects);
+	deallocate_vector(lights);
+	deallocate_vector(vertexes);
+	deallocate_vector(normals);
+	deallocate_vector(texcoords);
+	deallocate_vector(materials);
+	deallocate_vector(textures);
+}
+
+template <class T>
+void Scene::deallocate_vector(vector<T> vec) {
+	for (unsigned int i = 0; i < vec.size(); i++) {
+		delete vec[i];
 	}
 }
 
@@ -45,7 +44,6 @@ bool Scene::populate(string filename) {
 
 	string line;
 	int line_number = 1;
-	Material mtlcolor = Material();
 
 	// .obj format has 1-indexed arrays, make a dummy at index 0
 	vertexes.push_back(new Point3());
@@ -124,18 +122,22 @@ bool Scene::populate(string filename) {
 			}
 			Color diff = Color(rd, gd, bd);
 			Color spec = Color(rs, gs, bs);
-			mtlcolor = Material(diff, spec, ka, kd, ks, n);
+			Material* mtlcolor = new Material(diff, spec, ka, kd, ks, n);
+			materials.push_back(mtlcolor);
 		}
-		else if (keyword.compare("sphere") == 0) {
-			float x, y, z, r;
-			ss >> x >> y >> z >> r;
+		else if (keyword.compare("texture") == 0) {
+			string filename;
+			ss >> filename;
 			if (!ss) {
-				cout << "Failure reading input for sphere on line: " << line_number << endl;
+				cout << "Failure reading input for " + keyword + " on line: " << line_number << endl;
 				return false;
 			}
-			Point3 p = Point3(x, y, z);
-			SceneObject* so = new Sphere(p, r, mtlcolor);
-			objects.push_back(so);
+			Texture* t = new Texture();
+			if (!t->load(filename)) {
+				cout << "Error loading texture: " << filename << endl;
+				return false;
+			}
+			textures.push_back(t);
 		}
 		else if (keyword.compare("light") == 0 || keyword.compare("attlight") == 0) {
 			float x, y, z, r, g, b, c1, c2, c3;
@@ -215,6 +217,20 @@ bool Scene::populate(string filename) {
 			TexCoord* t = new TexCoord(x, y);
 			texcoords.push_back(t);
 		}
+
+		/* SCENEOBJECTS */
+
+		else if (keyword.compare("sphere") == 0) {
+			float x, y, z, r;
+			ss >> x >> y >> z >> r;
+			if (!ss) {
+				cout << "Failure reading input for sphere on line: " << line_number << endl;
+				return false;
+			}
+			Point3 p = Point3(x, y, z);
+			SceneObject* so = new Sphere(p, r, materials.size() - 1, textures.size() - 1);
+			objects.push_back(so);
+		}
 		else if (keyword.compare("f") == 0) {
 			// Janky, but can determine what kind of face description it is by counting the number of slashes
 			int slash_count = 0;
@@ -229,7 +245,7 @@ bool Scene::populate(string filename) {
 			// Basic face
 			if (slash_count == 0) {
 				ss >> px >> py >> pz;
-				SceneObject* so = new Polygon(px, py, pz, mtlcolor);
+				SceneObject* so = new Polygon(px, py, pz, materials.size() - 1, textures.size() - 1);
 				objects.push_back(so);
 			}
 			// Just a texture
@@ -239,7 +255,7 @@ bool Scene::populate(string filename) {
 				ss.str(s);
 
 				ss >> s >> px >> tx >> py >> ty >> pz >> tz;
-				SceneObject* so = new Polygon(px, py, pz, tx, ty, tz, mtlcolor);
+				SceneObject* so = new Polygon(px, py, pz, tx, ty, tz, materials.size() - 1, textures.size() - 1);
 				objects.push_back(so);
 			}
 			// Point, texture, and normal,
@@ -263,7 +279,7 @@ bool Scene::populate(string filename) {
 						cout << "Failure reading input for " + keyword + " on line: " << line_number << endl;
 						return false;
 					}
-					Polygon* poly = new Polygon(px, py, pz, mtlcolor);
+					Polygon* poly = new Polygon(px, py, pz, materials.size() - 1, textures.size() - 1);
 					SceneObject* so = poly;
 					poly->setNormalIndices(nx, ny, nz);
 					objects.push_back(so);
@@ -279,7 +295,7 @@ bool Scene::populate(string filename) {
 						cout << "Failure reading input for " + keyword + " on line: " << line_number << endl;
 						return false;
 					}
-					SceneObject* so = new Polygon(px, py, pz, tx, ty, tz, nx, ny, nz, mtlcolor);
+					SceneObject* so = new Polygon(px, py, pz, tx, ty, tz, nx, ny, nz, materials.size() - 1, textures.size() - 1);
 					objects.push_back(so);
 				}
 			}

@@ -6,20 +6,19 @@
 class Sphere : public SceneObject
 {
 private:
+	Point3 pos;
 	float radius;
 
 public:
-	Sphere() {
-		radius = 0;
-	}
+	Sphere();
 
 	Sphere(const Sphere& sphere);
 
-	Sphere(const Point3& pos_, float radius_, const Material& mtlcolor_) {
-		pos = pos_;
-		radius = radius_;
-		mtlcolor = mtlcolor_;
-	}
+	Sphere(const Point3& pos_, float radius_, const int mtl_index_);
+
+	Sphere(const Point3& pos_, float radius_, const int mtl_index_, const int tex_index_);
+
+	Point3 getPos() const { return pos; }
 
 	float getRadius() const{ return radius; }
 

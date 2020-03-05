@@ -49,6 +49,9 @@ private:
 	DepthCue depthCue;
 	bool depthCued = false;
 
+	template <class T>
+	void deallocate_vector(std::vector<T> vec);
+
 public:
 	Scene() { }
 	~Scene();
@@ -56,19 +59,25 @@ public:
 	Point3 getEye() const { return eye; }
 	Vector3 getViewdir() const { return viewdir; }
 	Vector3 getUpdir() const { return updir; }
+
 	int getWidth() const { return img_width; }
 	int getHeight() const { return img_height; }
 	float getHfov() const { return fov_h; }
+
 	Color getBkgcolor() const { return bkgcolor; }
 	Light* getLight(int i) const { return lights[i]; }
 	SceneObject* getObject(int i) const { return objects[i]; }
+	Point3* getVertex(int i) const { return vertexes[i]; }
+	Vector3* getNormal(int i) const { return normals[i]; }
+	TexCoord* getTexcoord(int i) const { return texcoords[i]; }
+	Material* getMaterial(int i) const { return materials[i]; }
+	Texture* getTexture(int i) const { return textures[i]; }
+
 	int getNumObjects() const { return objects.size(); }
 	int getNumLights() const { return lights.size(); }
 	DepthCue getDepthCue() const { return depthCue; }
 	bool isDepthCued() const { return depthCued; }
-	Point3* getVertex(int i) const { return vertexes[i]; }
-	Vector3* getNormal(int i) const { return normals[i]; }
-	TexCoord* getTexcoord(int i) const { return texcoords[i]; }
+	
 
 
 	

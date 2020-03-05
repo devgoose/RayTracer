@@ -3,10 +3,31 @@
 
 #include "Sphere.h"
 
+Sphere::Sphere() 
+	: SceneObject() {
+	radius = 0;
+	pos = Point3();
+}
+
 Sphere::Sphere(const Sphere& sphere) {
 	radius = sphere.radius;
-	mtlcolor = sphere.mtlcolor;
+	mtl_index = sphere.mtl_index;
+	tex_index = sphere.tex_index;
 	pos = sphere.pos;
+}
+
+Sphere::Sphere(const Point3& pos_, float radius_, const int mtl_index_) {
+	pos = pos_;
+	radius = radius_;
+	mtl_index = mtl_index_;
+	tex_index = -1;
+}
+
+Sphere::Sphere(const Point3& pos_, float radius_, const int mtl_index_, const int tex_index_) {
+	pos = pos_;
+	radius = radius_;
+	mtl_index = mtl_index_;
+	tex_index = tex_index_;
 }
 
 bool Sphere::Intersect(const Ray& ray, Point3* intersection, const Scene& scene)  {

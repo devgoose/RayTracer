@@ -12,6 +12,7 @@ private:
 	std::vector< std::vector<Color*> > texture;
 	int height, width;
 public:
+	Texture() {};
 	Texture(std::string filename);
 	~Texture();
 
