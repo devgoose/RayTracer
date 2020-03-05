@@ -137,6 +137,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="TexCoord.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Vector3.cpp" />
     <ClCompile Include="ViewWindow.cpp" />
   </ItemGroup>
@@ -148,17 +149,20 @@
     <ClInclude Include="Material.h" />
     <ClInclude Include="PointLight.h" />
     <ClInclude Include="Polygon.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="SceneObject.h" />
     <ClInclude Include="Point3.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="TexCoord.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="ViewWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="cube_smooth.txt" />
+    <Text Include="teapot.txt" />
+    <Text Include="cube.txt" />
     <Text Include="Makefile" />
     <Text Include="planets.txt" />
     <Text Include="spheres.txt" />
@@ -166,9 +170,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="image.ppm" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="RayTracer.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

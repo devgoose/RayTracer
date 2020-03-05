@@ -44,7 +44,7 @@ bool Scene::populate(string filename) {
 	// Continue to read file
 
 	string line;
-	int line_number = 0;
+	int line_number = 1;
 	Material mtlcolor = Material();
 
 	// .obj format has 1-indexed arrays, make a dummy at index 0
@@ -201,6 +201,8 @@ bool Scene::populate(string filename) {
 				return false;
 			}
 			Vector3* v = new Vector3(x, y, z);
+			*v = v->toUnit();
+			
 			normals.push_back(v);
 		}
 		else if (keyword.compare("vt") == 0) {
@@ -232,7 +234,11 @@ bool Scene::populate(string filename) {
 			}
 			// Just a texture
 			else if (slash_count == 3) {
-				ss >> px >> tx >> py >> ty >> pz >> tz;
+				string s = ss.str();
+				replace(s.begin(), s.end(), '/', ' ');
+				ss.str(s);
+
+				ss >> s >> px >> tx >> py >> ty >> pz >> tz;
 				SceneObject* so = new Polygon(px, py, pz, tx, ty, tz, mtlcolor);
 				objects.push_back(so);
 			}
@@ -248,7 +254,11 @@ bool Scene::populate(string filename) {
 				
 				// points and normals
 				if (!test) {
-					ss >> px >> nx >> py >> ny >> pz >> nz;
+					string s = ss.str();
+					replace(s.begin(), s.end(), '/', ' ');
+					ss.str(s);
+
+					ss >> s >> px >> nx >> py >> ny >> pz >> nz;
 					if (!ss) {
 						cout << "Failure reading input for " + keyword + " on line: " << line_number << endl;
 						return false;
@@ -260,7 +270,11 @@ bool Scene::populate(string filename) {
 				}
 				// points textures and normals
 				else {
-					ss >> px >> tx >> nx >> py >> ty >> ny >> pz >> tz >> nz;
+					string s = ss.str();
+					replace(s.begin(), s.end(), '/', ' ');
+					ss.str(s);
+
+					ss >> s >> px >> tx >> nx >> py >> ty >> ny >> pz >> tz >> nz;
 					if (!ss) {
 						cout << "Failure reading input for " + keyword + " on line: " << line_number << endl;
 						return false;

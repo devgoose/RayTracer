@@ -11,6 +11,7 @@
 #include "DirectionalLight.h"
 #include "DepthCue.h"
 #include "TexCoord.h"
+#include "Texture.h"
 
 class SceneObject;
 
@@ -40,6 +41,9 @@ private:
 	std::vector<Point3*> vertexes;
 	std::vector<Vector3*> normals;
 	std::vector<TexCoord*> texcoords;
+
+	std::vector<Material*> materials;
+	std::vector<Texture*> textures;
 
 
 	DepthCue depthCue;

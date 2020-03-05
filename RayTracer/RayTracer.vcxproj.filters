@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\Scenes">
+      <UniqueIdentifier>{9574709f-b993-4ef5-9bfa-d146dec98432}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ray.cpp">
@@ -63,6 +66,9 @@
     <ClCompile Include="TexCoord.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ray.h">
@@ -101,9 +107,6 @@
     <ClInclude Include="DirectionalLight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DepthCue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -113,6 +116,9 @@
     <ClInclude Include="TexCoord.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="image.ppm">
@@ -120,22 +126,26 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="planets.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
     <Text Include="Makefile">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="spheres.txt">
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="scene.txt">
       <Filter>Resource Files</Filter>
     </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="RayTracer.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
+    <Text Include="cube.txt">
+      <Filter>Resource Files\Scenes</Filter>
+    </Text>
+    <Text Include="spheres.txt">
+      <Filter>Resource Files\Scenes</Filter>
+    </Text>
+    <Text Include="planets.txt">
+      <Filter>Resource Files\Scenes</Filter>
+    </Text>
+    <Text Include="teapot.txt">
+      <Filter>Resource Files\Scenes</Filter>
+    </Text>
+    <Text Include="cube_smooth.txt">
+      <Filter>Resource Files\Scenes</Filter>
+    </Text>
   </ItemGroup>
 </Project>

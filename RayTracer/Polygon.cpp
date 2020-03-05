@@ -44,6 +44,7 @@ void Polygon::setNormalIndices(int n1, int n2, int n3) {
 	normal_indices.push_back(n1);
 	normal_indices.push_back(n2);
 	normal_indices.push_back(n3);
+	isShaded = true;
 }
 
 

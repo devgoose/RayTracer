@@ -132,6 +132,10 @@ Color Ray::ShadeRay(const Point3& point, const SceneObject* obj, const Scene& sc
 		}
 
 		float shadow_flag = (float)(cast_rays - obscured_rays) / (float)cast_rays;
+		// DEBUG
+		if (shadow_flag != 0) {
+			int a = 1;
+		}
 		float attenuation_flag = 1;
 		if (light->isAttenuated()) {
 			PointLight* pl = (PointLight*)light;
