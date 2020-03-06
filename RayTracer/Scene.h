@@ -10,7 +10,7 @@
 #include "PointLight.h"
 #include "DirectionalLight.h"
 #include "DepthCue.h"
-#include "TexCoord.h"
+#include "Vector2.h"
 #include "Texture.h"
 
 class SceneObject;
@@ -40,7 +40,7 @@ private:
 
 	std::vector<Point3*> vertexes;
 	std::vector<Vector3*> normals;
-	std::vector<TexCoord*> texcoords;
+	std::vector<Vector2*> texcoords;
 
 	std::vector<Material*> materials;
 	std::vector<Texture*> textures;
@@ -69,12 +69,12 @@ public:
 	SceneObject* getObject(int i) const { return objects[i]; }
 	Point3* getVertex(int i) const { return vertexes[i]; }
 	Vector3* getNormal(int i) const { return normals[i]; }
-	TexCoord* getTexcoord(int i) const { return texcoords[i]; }
+	Vector2* getTexcoord(int i) const { return texcoords[i]; }
 	Material* getMaterial(int i) const { return materials[i]; }
 	Texture* getTexture(int i) const { return textures[i]; }
 
-	int getNumObjects() const { return objects.size(); }
-	int getNumLights() const { return lights.size(); }
+	int getNumObjects() const { return (int)objects.size(); }
+	int getNumLights() const { return (int)lights.size(); }
 	DepthCue getDepthCue() const { return depthCue; }
 	bool isDepthCued() const { return depthCued; }
 	

@@ -16,6 +16,12 @@
     <Filter Include="Resource Files\Scenes">
       <UniqueIdentifier>{9574709f-b993-4ef5-9bfa-d146dec98432}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Textures">
+      <UniqueIdentifier>{ee52c6f1-5feb-4fa2-b0de-0e13ff75b882}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Normalmaps">
+      <UniqueIdentifier>{f13ad43b-9e39-4349-a945-c1960c052777}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="render_main.cpp">
@@ -60,13 +66,13 @@
     <ClCompile Include="Polygon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TexCoord.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Ray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,16 +119,25 @@
     <ClInclude Include="Polygon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TexCoord.h">
+    <ClInclude Include="Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
+    <ClInclude Include="Vector2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="image.ppm">
       <Filter>Resource Files</Filter>
+    </None>
+    <None Include="texture_world.ppm">
+      <Filter>Resource Files\Textures</Filter>
+    </None>
+    <None Include="Cobblestone_NORM.ppm">
+      <Filter>Resource Files\Normalmaps</Filter>
+    </None>
+    <None Include="Cobblestone_TEX.ppm">
+      <Filter>Resource Files\Textures</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +160,9 @@
       <Filter>Resource Files\Scenes</Filter>
     </Text>
     <Text Include="cube_smooth.txt">
+      <Filter>Resource Files\Scenes</Filter>
+    </Text>
+    <Text Include="sphere_world.txt">
       <Filter>Resource Files\Scenes</Filter>
     </Text>
   </ItemGroup>

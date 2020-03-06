@@ -1,5 +1,6 @@
-
 #include "Polygon.h"
+
+#include <cmath>
 
 Polygon::Polygon(int v1, int v2, int v3, const int mtl_index_, const int tex_index_) {
 	vertex_indices.push_back(v1);
@@ -14,21 +15,21 @@ Polygon::Polygon(int v1, int v2, int v3, int t1, int t2, int t3, const int mtl_i
 	vertex_indices.push_back(v1);
 	vertex_indices.push_back(v2);
 	vertex_indices.push_back(v3);
-	text_indices.push_back(t1);
-	text_indices.push_back(t2);
-	text_indices.push_back(t3);
+	tex_indices.push_back(t1);
+	tex_indices.push_back(t2);
+	tex_indices.push_back(t3);
 	mtl_index = mtl_index_;
 	tex_index = tex_index_;
-	isShaded = true;
+	isShaded = false;
 }
 
 Polygon::Polygon(int v1, int v2, int v3, int t1, int t2, int t3, int n1, int n2, int n3, const int mtl_index_, const int tex_index_) {
 	vertex_indices.push_back(v1);
 	vertex_indices.push_back(v2);
 	vertex_indices.push_back(v3);
-	text_indices.push_back(t1);
-	text_indices.push_back(t2);
-	text_indices.push_back(t3);
+	tex_indices.push_back(t1);
+	tex_indices.push_back(t2);
+	tex_indices.push_back(t3);
 	normal_indices.push_back(n1);
 	normal_indices.push_back(n2);
 	normal_indices.push_back(n3);
@@ -37,10 +38,10 @@ Polygon::Polygon(int v1, int v2, int v3, int t1, int t2, int t3, int n1, int n2,
 	isShaded = true;
 }
 
-void Polygon::setTextIndices(int t1, int t2, int t3) {
-	text_indices.push_back(t1);
-	text_indices.push_back(t2);
-	text_indices.push_back(t3);
+void Polygon::setTexIndices(int t1, int t2, int t3) {
+	tex_indices.push_back(t1);
+	tex_indices.push_back(t2);
+	tex_indices.push_back(t3);
 }
 
 void Polygon::setNormalIndices(int n1, int n2, int n3) {
@@ -51,7 +52,7 @@ void Polygon::setNormalIndices(int n1, int n2, int n3) {
 }
 
 
-bool Polygon::Intersect(const Ray& ray, Point3* intersection, const Scene& scene) {
+bool Polygon::Intersect(const Ray& ray, Point3* intersection, const Scene& scene) const{
 	// Determine if ray intersects plane at all
 	// Plane equation Ax + By + Cz + D = 0
 	// A = Nx, B = Ny, C = Nz
@@ -133,7 +134,7 @@ void Polygon::getBarycentric(const Point3& intersection, float* alpha, float* be
 
 	*beta = Eb / E;
 	*gamma = Ey / E;
-	*alpha = 1.0 - ((double)*beta + (double)*gamma);
+	*alpha = (float)1.0 - (*beta + *gamma);
 }
 
 Vector3 Polygon::getNormal(const Point3& point, const Scene& scene) const {
@@ -164,4 +165,43 @@ Vector3 Polygon::getNormal(const Point3& point, const Scene& scene) const {
 		normal = e1.cross(e2).toUnit();
 	}
 	return normal;
+}
+
+Color Polygon::getDiffuseColorAtPoint(const Point3& intersection, const Scene& scene) const {
+	// If object is not textured, just return its material diffuse color
+	if (!isTextured()) {
+		return scene.getMaterial(mtl_index)->getDiffuse();
+	}
+
+	// Otherwise, compute the texture coordinate u, v and find the nearest
+	// color in the texture
+	float alpha, beta, gamma;
+	getBarycentric(intersection, &alpha, &beta, &gamma, scene);
+
+	Vector2* p0 = scene.getTexcoord(tex_indices[0]);
+	Vector2* p1 = scene.getTexcoord(tex_indices[1]);
+	Vector2* p2 = scene.getTexcoord(tex_indices[2]);
+
+	float u = (float)(
+		(alpha * (float)p0->getX()) +
+		(beta * (float)p1->getX()) +
+		(gamma * (float)p2->getX())
+		);
+
+	float v = (float)(
+		(alpha * (float)p0->getY()) +
+		(beta * (float)p1->getY()) +
+		(gamma * (float)p2->getY())
+		);
+
+	Texture* object_texture = scene.getTexture(tex_index);
+
+	int texture_height = object_texture->getHeight();
+	int texture_width = object_texture->getWidth();
+
+	int i = round(u * (texture_width - 1));
+	int j = round(v * (texture_height - 1));
+
+	Color* c = object_texture->getColorAtCoord(j, i);
+	return Color(*c);
 }

@@ -4,10 +4,10 @@
 #include "Scene.h"
 #include "ViewWindow.h"
 
-const float M_PI = 3.141592653;
+const float M_PI = (float)3.141592653;
 
 float to_radians(float degrees) {
-	return (degrees * M_PI) / 180.0;
+	return (degrees * M_PI) / (float)180.0;
 }
 
 ViewWindow::ViewWindow(const Scene& scene) {
@@ -26,18 +26,18 @@ void ViewWindow::fillCorners(const Scene& scene) {
 
 	float d = 2.0;
 
-	float w = 2.0 * d * (float)tan(to_radians(scene.getHfov() / 2.0));
+	float w = (float)2.0 * d * (float)tan(to_radians(scene.getHfov() / (float)2.0));
 	float h = w / ((float)scene.getWidth() / (float)scene.getHeight());
 
-	ul = scene.getEye() + (n * d) - (u * (w / 2.0)) + (v * (h / 2.0));
-	ur = scene.getEye() + (n * d) + (u * (w / 2.0)) + (v * (h / 2.0));
-	ll = scene.getEye() + (n * d) - (u * (w / 2.0)) - (v * (h / 2.0));
-	lr = scene.getEye() + (n * d) + (u * (w / 2.0)) - (v * (h / 2.0));
+	ul = scene.getEye() + (n * d) - (u * (w / (float)2.0)) + (v * (h / (float)2.0));
+	ur = scene.getEye() + (n * d) + (u * (w / (float)2.0)) + (v * (h / (float)2.0));
+	ll = scene.getEye() + (n * d) - (u * (w / (float)2.0)) - (v * (h / (float)2.0));
+	lr = scene.getEye() + (n * d) + (u * (w / (float)2.0)) - (v * (h / (float)2.0));
 }
 
 void ViewWindow::fillLattice(const Scene& scene) {
-	Vector3 h_offset = (ur - ul) / (2.0 * (float)scene.getWidth());
-	Vector3 v_offset = (ll - ul) / (2.0 * (float)scene.getHeight());
+	Vector3 h_offset = (ur - ul) / ((float)2.0 * (float)scene.getWidth());
+	Vector3 v_offset = (ll - ul) / ((float)2.0 * (float)scene.getHeight());
 
 	Vector3 h_delta = (ur - ul) / ((float)scene.getWidth());
 	Vector3 v_delta = (ll - ul) / ((float)scene.getHeight());
@@ -45,7 +45,7 @@ void ViewWindow::fillLattice(const Scene& scene) {
 	for (int i = 0; i < scene.getHeight(); i++) {
 		std::vector<Point3> row;
 		for (int j = 0; j < scene.getWidth(); j++) {
-			row.push_back(ul + (h_delta * j) + (v_delta * i) + h_offset + v_offset);
+			row.push_back(ul + (h_delta * (float)j) + (v_delta * (float)i) + h_offset + v_offset);
 		}
 		view_lattice.push_back(row);
 	}

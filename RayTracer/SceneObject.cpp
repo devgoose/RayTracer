@@ -19,6 +19,6 @@ void SceneObject::setMaterialIndex(const int mtl_index_) {
 	mtl_index = mtl_index_;
 }
 
-bool SceneObject::isTextured() {
-	return (tex_index < 0);
+bool SceneObject::isTextured() const {
+	return (tex_index >= 0);
 }

@@ -138,7 +138,7 @@
     <ClCompile Include="render_main.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sphere.cpp" />
-    <ClCompile Include="TexCoord.cpp" />
+    <ClCompile Include="Vector2.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Vector3.cpp" />
     <ClCompile Include="ViewWindow.cpp" />
@@ -156,13 +156,14 @@
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sphere.h" />
-    <ClInclude Include="TexCoord.h" />
+    <ClInclude Include="Vector2.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="ViewWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="cube_smooth.txt" />
+    <Text Include="sphere_world.txt" />
     <Text Include="teapot.txt" />
     <Text Include="cube.txt" />
     <Text Include="Makefile" />
@@ -171,7 +172,10 @@
     <Text Include="scene.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Cobblestone_TEX.ppm" />
+    <None Include="Cobblestone_NORM.ppm" />
     <None Include="image.ppm" />
+    <None Include="texture_world.ppm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

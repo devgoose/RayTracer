@@ -31,9 +31,10 @@ public:
 	void setTextureIndex(const int tex_index_);
 	void setMaterialIndex(const int mtl_index_);
 
-	bool isTextured();
+	bool isTextured() const;
 
-	virtual bool Intersect(const Ray& ray, Point3* intersection, const Scene& scene) = 0;
+	virtual Color getDiffuseColorAtPoint(const Point3& intersection, const Scene& scene) const = 0;
+	virtual bool Intersect(const Ray& ray, Point3* intersection, const Scene& scene) const = 0;
 	virtual Vector3 getNormal(const Point3& point, const Scene& scene) const = 0;
 };
 

@@ -60,8 +60,7 @@ Color Ray::ShadeRay(const Point3& point, const SceneObject* obj, const Scene& sc
 	Color final_color;
 
 	Material* material = scene.getMaterial(obj->getMaterialIndex());
-
-	Color ambient_component = material->getDiffuse() * material->getAmbientCoef();
+	Color ambient_component = obj->getDiffuseColorAtPoint(point, scene) * material->getAmbientCoef();
 
 	// Loop through every light
 	for (int i = 0; i < scene.getNumLights(); i++) {
@@ -130,7 +129,7 @@ Color Ray::ShadeRay(const Point3& point, const SceneObject* obj, const Scene& sc
 
 			cast_rays++;
 		}
-
+			Color ambient_component = material->getDiffuse() * material->getAmbientCoef();
 		float shadow_flag = (float)(cast_rays - obscured_rays) / (float)cast_rays;
 		// DEBUG
 		if (shadow_flag != 0) {
@@ -141,9 +140,10 @@ Color Ray::ShadeRay(const Point3& point, const SceneObject* obj, const Scene& sc
 			PointLight* pl = (PointLight*)light;
 			attenuation_flag = light->getAttenuationVal(point.distance(pl->getPos()));
 		}
-		// float shadow_flag = 1;
+
+
 		Color diffuse_component = 
-			material->getDiffuse() *
+			obj->getDiffuseColorAtPoint(point, scene) *
 			material->getDiffuseCoef() * 
 			std::max((float)0.0, normal.dot(light_dir));
 
@@ -157,6 +157,7 @@ Color Ray::ShadeRay(const Point3& point, const SceneObject* obj, const Scene& sc
 	}
 
 	// Finally, add the ambient component
+	
 
 	final_color = final_color + ambient_component;
 	

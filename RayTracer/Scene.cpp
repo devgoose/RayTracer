@@ -48,7 +48,7 @@ bool Scene::populate(string filename) {
 	// .obj format has 1-indexed arrays, make a dummy at index 0
 	vertexes.push_back(new Point3());
 	normals.push_back(new Vector3());
-	texcoords.push_back(new TexCoord());
+	texcoords.push_back(new Vector2());
 
 	while (getline(fin, line)) {
 		stringstream ss = stringstream(line);
@@ -95,14 +95,14 @@ bool Scene::populate(string filename) {
 			fov_h = hfov;
 		}
 		else if (keyword.compare("imsize") == 0) {
-			int width, height;
+			float width, height;
 			ss >> width >> height;
 			if (!ss) {
 				cout << "Failure reading input for imsize on line: " << line_number << endl;
 				return false;
 			}
-			img_width = width;
-			img_height = height;
+			img_width = (int)width;
+			img_height = (int)height;
 		}
 		else if (keyword.compare("bkgcolor") == 0) {
 			float r, g, b;
@@ -208,13 +208,13 @@ bool Scene::populate(string filename) {
 			normals.push_back(v);
 		}
 		else if (keyword.compare("vt") == 0) {
-			int x, y;
+			float x, y;
 			ss >> x >> y;
 			if (!ss) {
 				cout << "Failure reading input for " + keyword + " on line: " << line_number << endl;
 				return false;
 			}
-			TexCoord* t = new TexCoord(x, y);
+			Vector2* t = new Vector2(x, y);
 			texcoords.push_back(t);
 		}
 

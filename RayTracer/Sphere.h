@@ -22,8 +22,10 @@ public:
 
 	float getRadius() const{ return radius; }
 
-	bool Intersect(const Ray& ray, Point3* intersection, const Scene& scene) override;
+	// Virtual override functions
+	bool Intersect(const Ray& ray, Point3* intersection, const Scene& scene) const override;
 	Vector3 getNormal(const Point3& point, const Scene& scene) const override;
+	Color getDiffuseColorAtPoint(const Point3& intersection, const Scene& scene) const override;
 	
 };
 
