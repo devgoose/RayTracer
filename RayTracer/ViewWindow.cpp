@@ -4,7 +4,8 @@
 #include "Scene.h"
 #include "ViewWindow.h"
 
-const float M_PI = (float)3.141592653;
+// Remove for linux
+// const float M_PI = (float)3.141592653;
 
 float to_radians(float degrees) {
 	return (degrees * M_PI) / (float)180.0;

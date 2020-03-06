@@ -26,7 +26,7 @@ void Light::attenuate(float c1_, float c2_, float c3_) {
 
 float Light::getAttenuationVal(float distance) {
 	if (this->isPointLight()) {
-		return (float)1.0 / (c1 + (distance * c2) + (pow(distance, 2) * c3));
+		return (float)1.0 / (c1 + (distance * c2) + (distance * distance * c3));
 	}
 	else {
 		return 1;

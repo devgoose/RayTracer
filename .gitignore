@@ -13,3 +13,6 @@ RayTracer/Debug/
 RayTracer/Release/
 *.rc
 *.zip
+RayTracer/obj/
+*.o
+render

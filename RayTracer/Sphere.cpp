@@ -2,8 +2,8 @@
 #include <algorithm>
 
 #include "Sphere.h"
-
-const float M_PI = (float)3.141592653;
+// Disable PI on linux
+// const float M_PI = (float)3.141592653;
 
 Sphere::Sphere() 
 	: SceneObject() {
