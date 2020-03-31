@@ -7,19 +7,25 @@
 #include "Ray.h"
 #include "Scene.h"
 
-int SAMPLE_RAYS = 1;
-float JITTER_RADIUS = 0;
+int SHADOW_SAMPLE_RAYS = 1;
+float SHADOW_JITTER_RADIUS = .1;
+
+int REFLECTION_SAMPLE_RAYS = 10;
+float REFLECTION_JITTER_RADIUS = .1;
+
+int MAX_RECURSIVE_DEPTH = 10;
+float MIN_COLOR_ATTRIBUTION = 0.001;
 
 
 Ray Ray::jitter(float radius) {
 
-	float rand_y = direction.getY() + ((float)(std::rand() / (float)RAND_MAX) * radius);
-	float rand_z = direction.getZ() + ((float)(std::rand() / (float)RAND_MAX) * radius);
-	float rand_x = direction.getX() + ((float)(std::rand() / (float)RAND_MAX) * radius);
+	float rand_y = direction.getY() + (((float)(std::rand() / (float)RAND_MAX) - 0.5) * (radius * 2.0));
+	float rand_z = direction.getZ() + (((float)(std::rand() / (float)RAND_MAX) - 0.5) * (radius * 2.0));
+	float rand_x = direction.getX() + (((float)(std::rand() / (float)RAND_MAX) - 0.5) * (radius * 2.0));
 	return Ray(pos, Vector3(rand_x, rand_y, rand_z).toUnit());
 }
 
-Color Ray::TraceRay(const Ray& ray, const Scene& scene) {
+Color Ray::TraceRay(const Ray& ray, const Scene& scene, int depth, float fresnel_product, const SceneObject* origin_obj) {
 	Point3* closest_point = NULL;
 	SceneObject* closest_object = NULL;
 
@@ -27,6 +33,12 @@ Color Ray::TraceRay(const Ray& ray, const Scene& scene) {
 	for (int i = 0; i < scene.getNumObjects(); i++) {
 		Point3 intersection;
 		SceneObject* object;
+
+		// Don't consider the object the ray is originating from
+		if (scene.getObject(i) == origin_obj) {
+			continue;
+		}
+
 		if (scene.getObject(i)->Intersect(ray, &intersection, scene)) {
 			object = scene.getObject(i);
 			if (closest_point == NULL) {
@@ -50,17 +62,21 @@ Color Ray::TraceRay(const Ray& ray, const Scene& scene) {
 		pixel_color = Color(scene.getBkgcolor());
 	}
 	else {
-		pixel_color = Ray::ShadeRay(*closest_point, closest_object, scene);
+		pixel_color = Ray::ShadeRay(ray, *closest_point, closest_object, scene, depth, fresnel_product);
 	}
 
 	return pixel_color;
 }
 
-Color Ray::ShadeRay(const Point3& point, const SceneObject* obj, const Scene& scene) {
+Color Ray::ShadeRay(const Ray& incident_ray, const Point3& point, const SceneObject* obj, const Scene& scene, int depth, float fresnel_product) {
 	Color final_color;
+	Color local_color;
 
 	Material* material = scene.getMaterial(obj->getMaterialIndex());
 	Color ambient_component = obj->getDiffuseColorAtPoint(point, scene) * material->getAmbientCoef();
+
+	Vector3 normal = obj->getNormal(point, scene).toUnit();
+	Vector3 incident_dir = (incident_ray.getDirection() * -1.0).toUnit();
 
 	// Loop through every light
 	for (int i = 0; i < scene.getNumLights(); i++) {
@@ -80,21 +96,19 @@ Color Ray::ShadeRay(const Point3& point, const SceneObject* obj, const Scene& sc
 			DirectionalLight* l = (DirectionalLight*)light;
 			light_dir = (l->getDirection()).toUnit() * -1.0;
 		}
+		
+		// Get halfway vector
+		Vector3 halfway = (incident_dir + light_dir).toUnit();
 
-		Vector3 normal = obj->getNormal(point, scene).toUnit();
-		Vector3 view_dir = (scene.getEye() - point).toUnit();
-		Vector3 halfway = (view_dir + light_dir).toUnit();
-
-	
 		// Loop through all objects, check for shadow
 		Ray shadow_ray = Ray(point, light_dir);
 		int obscured_rays = 0;
 		int cast_rays = 0;
 		Point3 intersection;
-		for (int j = 0; j < SAMPLE_RAYS; j++) {
+		for (int j = 0; j < SHADOW_SAMPLE_RAYS; j++) {
 
 			// Sample a ray
-			Ray sampled_shadow_ray = shadow_ray.jitter(JITTER_RADIUS);
+			Ray sampled_shadow_ray = shadow_ray.jitter(SHADOW_JITTER_RADIUS);
 
 			for (int i = 0; i < scene.getNumObjects(); i++) {
 				SceneObject* cur_obj = scene.getObject(i);
@@ -153,13 +167,49 @@ Color Ray::ShadeRay(const Point3& point, const SceneObject* obj, const Scene& sc
 			pow(std::max((float)0, normal.dot(halfway)), material->getExponent());
 
 
-		final_color = final_color + (light->getColor() * (diffuse_component + specular_component) * shadow_flag * attenuation_flag);
+		local_color = local_color + (light->getColor() * (diffuse_component + specular_component) * shadow_flag * attenuation_flag);
 	}
 
-	// Finally, add the ambient component
-	
+	// Add the ambient component
+	local_color = local_color + ambient_component;
 
-	final_color = final_color + ambient_component;
+	// Recursively ray trace, only if we have not yet reached depth,
+	// or the Fr ^ depth * color is less than the minimum color value
+
+	// Test if reflected color is above minimum color value
+	float eta = material->getRefractionIndex();
+	float fo = pow((eta - 1.0) / (eta + 1.0), 2);
+
+	float fresnel = fo + ((1.0 - fo) * pow((1.0 - normal.dot(incident_dir)), 5));
+	Color reflective_color = local_color * fresnel_product;
+
+	if (depth < MAX_RECURSIVE_DEPTH &&
+		(reflective_color.getR() > MIN_COLOR_ATTRIBUTION ||
+			reflective_color.getG() > MIN_COLOR_ATTRIBUTION ||
+			reflective_color.getB() > MIN_COLOR_ATTRIBUTION)
+		) {
+
+		// Reflection ray = 2(N dot I)N - I, starting from intersection 
+		Ray reflection_ray = Ray(point, (normal * (normal.dot(incident_dir) * 2.0) - incident_dir).toUnit());
+
+		// TEST
+		// Distributed reflections
+		Color distributed_reflected_color = Color();
+		for (int j = 0; j < REFLECTION_SAMPLE_RAYS; j++) {
+			Ray jittered_ray = reflection_ray.jitter(REFLECTION_JITTER_RADIUS);
+			distributed_reflected_color = distributed_reflected_color + (TraceRay(reflection_ray, scene, depth + 1, fresnel_product * fresnel, obj) * fresnel);
+		}
+		distributed_reflected_color = distributed_reflected_color / REFLECTION_JITTER_RADIUS;
+		final_color = local_color + distributed_reflected_color;
+
+		
+		// final_color = local_color + (TraceRay(reflection_ray, scene, depth + 1, fresnel_product * fresnel, obj) * fresnel);
+	}
+	else {
+		final_color = local_color;
+	}
+
+
 	
 	if (scene.isDepthCued()) {
 		float dist = scene.getEye().distance(point);

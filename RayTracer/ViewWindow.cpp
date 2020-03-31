@@ -5,10 +5,10 @@
 #include "ViewWindow.h"
 
 // Remove for linux
-// const float M_PI = (float)3.141592653;
+const float C_M_PI = (float)3.141592653;
 
 float to_radians(float degrees) {
-	return (degrees * M_PI) / (float)180.0;
+	return (degrees * C_M_PI) / (float)180.0;
 }
 
 ViewWindow::ViewWindow(const Scene& scene) {

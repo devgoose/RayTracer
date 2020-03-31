@@ -40,7 +40,7 @@ public:
 	Uses this ray and the objects in the scene to determine if it collides with any objects, and
 	if it does, calls ShadeRay.
 	*/
-	static Color TraceRay(const Ray& ray, const Scene& scene);
+	static Color TraceRay(const Ray& ray, const Scene& scene, int depth, float fresnel_product, const SceneObject* origin_obj);
 
 	/*
 	Main function for tracing rays at intersection points and for determining the color
@@ -53,8 +53,10 @@ public:
 	
 	For soft shadows, jitter() is called many times and a sample of rays is shot from each intersection point
 	so that an object in shadow can have a blend between its ambient color and its lit up color.
+
+	A fourth argument depth should start at 0 with the initial call.
 	*/
-	static Color ShadeRay(const Point3& point, const SceneObject* obj, const Scene& scene);
+	static Color ShadeRay(const Ray& incident_ray, const Point3& point, const SceneObject* obj, const Scene& scene, int depth, float fresnel_product);
 
 	
 };

@@ -2,8 +2,8 @@
 #include <algorithm>
 
 #include "Sphere.h"
-// Disable PI on linux
-// const float M_PI = (float)3.141592653;
+// M_PI may not be defined, use this instead
+const float C_M_PI = (float)3.141592653;
 
 Sphere::Sphere() 
 	: SceneObject() {
@@ -115,13 +115,13 @@ Color Sphere::getDiffuseColorAtPoint(const Point3& intersection, const Scene& sc
 	float phi = (float)std::acos(N.getY());
 	float theta = (float)std::atan2(N.getZ(), -N.getX());
 	if (theta < 0) {
-		theta += ((float)2.0 * M_PI);
+		theta += ((float)2.0 * C_M_PI);
 	}
 
-	float v = phi / M_PI;
+	float v = phi / C_M_PI;
 
 
-	float u = (theta) / ((float)2.0 * M_PI);
+	float u = (theta) / ((float)2.0 * C_M_PI);
 
 	Texture* object_texture = scene.getTexture(tex_index);
 

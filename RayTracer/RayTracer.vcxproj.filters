@@ -165,5 +165,11 @@
     <Text Include="sphere_world.txt">
       <Filter>Resource Files\Scenes</Filter>
     </Text>
+    <Text Include="texturetest.txt">
+      <Filter>Resource Files\Scenes</Filter>
+    </Text>
+    <Text Include="plane_and_shapes.txt">
+      <Filter>Resource Files\Scenes</Filter>
+    </Text>
   </ItemGroup>
 </Project>

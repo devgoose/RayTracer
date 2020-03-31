@@ -50,6 +50,9 @@ bool Scene::populate(string filename) {
 	normals.push_back(new Vector3());
 	texcoords.push_back(new Vector2());
 
+	// also push a material on for default if it is not provided
+	materials.push_back(new Material());
+
 	while (getline(fin, line)) {
 		stringstream ss = stringstream(line);
 		string keyword;
@@ -114,15 +117,15 @@ bool Scene::populate(string filename) {
 			bkgcolor = Color(r, g, b);
 		}
 		else if (keyword.compare("mtlcolor") == 0) {
-			float rd, gd, bd, rs, gs, bs, ka, kd, ks, n;
-			ss >> rd >> gd >> bd >> rs >> gs >> bs >> ka >> kd >> ks >> n;
+			float rd, gd, bd, rs, gs, bs, ka, kd, ks, n, alpha, eta;
+			ss >> rd >> gd >> bd >> rs >> gs >> bs >> ka >> kd >> ks >> n >> alpha >> eta;
 			if (!ss) {
 				cout << "Failure reading input for mtlcolor on line: " << line_number << endl;
 				return false;
 			}
 			Color diff = Color(rd, gd, bd);
 			Color spec = Color(rs, gs, bs);
-			Material* mtlcolor = new Material(diff, spec, ka, kd, ks, n);
+			Material* mtlcolor = new Material(diff, spec, ka, kd, ks, n, alpha, eta);
 			materials.push_back(mtlcolor);
 		}
 		else if (keyword.compare("texture") == 0) {
@@ -157,6 +160,7 @@ bool Scene::populate(string filename) {
 				cout << "'w' value must be either 0 or 1" << endl;
 				return false;
 			}
+
 			Color c = Color(r, g, b);
 			Light* l;
 

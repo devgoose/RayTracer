@@ -28,10 +28,13 @@ public:
 
 	float getR() const { return r; }
 	float getG() const { return g; }
+	float getB() const { return b; }
 
 	Color operator+(const Color& c);
 	Color operator*(const float c);
 	Color operator*(const Color& c);
+	Color operator/(const float c);
+	Color operator/(const Color& c);
 
 	/*
 	Clamps all color values to 1 if they are greater than one.

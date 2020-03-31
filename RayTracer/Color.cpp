@@ -20,6 +20,14 @@ Color Color::operator*(const Color& c) {
 	return Color(r * c.r, g * c.g, b * c.b);
 }
 
+Color Color::operator/(const float c) {
+	return Color(r / c, g / c, b / c);
+}
+
+Color Color::operator/(const Color& c) {
+	return Color(r / c.r, g / c.g, b / c.b);
+}
+
 void Color::clamp() {
 	r = std::min((float)1.0, r);
 	g = std::min((float)1.0, g);

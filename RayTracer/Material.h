@@ -20,8 +20,11 @@ private:
 	float ks;
 	float exponent;
 
+	float opacity;
+	float refraction_index;
+
 public:
-	Material(const Color& diff, const Color& spec, float ka_, float kd_, float ks_, float exponent_);
+	Material(const Color& diff, const Color& spec, float ka_, float kd_, float ks_, float exponent_, float opacity_, float refraction_index_);
 	Material();
 	Material(const Material& m);
 
@@ -31,6 +34,8 @@ public:
 	float getDiffuseCoef() const { return kd; }
 	float getSpecularCoef() const { return ks; }
 	float getExponent() const { return exponent; }
+	float getOpacity() const { return opacity; }
+	float getRefractionIndex() const { return refraction_index; }
 
 };
 

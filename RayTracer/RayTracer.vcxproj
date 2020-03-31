@@ -163,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="cube_smooth.txt" />
+    <Text Include="plane_and_shapes.txt" />
     <Text Include="sphere_world.txt" />
     <Text Include="teapot.txt" />
     <Text Include="cube.txt" />
@@ -170,6 +171,7 @@
     <Text Include="planets.txt" />
     <Text Include="spheres.txt" />
     <Text Include="scene.txt" />
+    <Text Include="texturetest.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Cobblestone_TEX.ppm" />

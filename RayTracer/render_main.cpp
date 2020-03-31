@@ -55,7 +55,10 @@ int main(int argc, char* argv[]) {
 			Vector3 direction = Vector3(view_window.getPoint(i, j) - scene.getEye());
 			Ray ray = Ray(scene.getEye(), direction);
 
-			Color pixel_color = Ray::TraceRay(ray, scene);
+			// Begin ray tracing at 0 depth
+			// Reflection = 1, assuming camera is in air
+			// Pass in NULL as current object because the first ray originates from eye
+			Color pixel_color = Ray::TraceRay(ray, scene, 0, 1.0, NULL);
 			pixel_color.clamp();
 			fout << pixel_color << endl;
 			if (i  == 60 && j == 238) {

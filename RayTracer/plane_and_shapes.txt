@@ -1,0 +1,26 @@
+eye 0 3 0
+viewdir 0 0 -1
+updir 0.0 1.0 0.0
+hfov 45
+imsize 3 3
+
+bkgcolor 0.5 0.5 0.5
+
+light 1 -1 0 0 1 1 1
+
+
+
+
+texture cobblestone_tex.ppm
+v -5 0 0
+v 5 0 0
+v -5 0 -20
+v 5 0 -20
+
+vt 0 0
+vt 0 1
+vt 1 0 
+vt 1 1
+
+f 1/2 2/4 3/1
+f 2/4 4/3 3/1
