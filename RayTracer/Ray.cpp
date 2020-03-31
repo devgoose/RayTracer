@@ -197,9 +197,9 @@ Color Ray::ShadeRay(const Ray& incident_ray, const Point3& point, const SceneObj
 		Color distributed_reflected_color = Color();
 		for (int j = 0; j < REFLECTION_SAMPLE_RAYS; j++) {
 			Ray jittered_ray = reflection_ray.jitter(REFLECTION_JITTER_RADIUS);
-			distributed_reflected_color = distributed_reflected_color + (TraceRay(reflection_ray, scene, depth + 1, fresnel_product * fresnel, obj) * fresnel);
+			distributed_reflected_color = distributed_reflected_color + (TraceRay(jittered_ray, scene, depth + 1, fresnel_product * fresnel, obj) * fresnel);
 		}
-		distributed_reflected_color = distributed_reflected_color / REFLECTION_JITTER_RADIUS;
+		distributed_reflected_color = distributed_reflected_color / REFLECTION_SAMPLE_RAYS;
 		final_color = local_color + distributed_reflected_color;
 
 		
