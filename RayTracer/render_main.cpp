@@ -48,7 +48,7 @@ int main(int argc, char* argv[]) {
 			// DEBUGGING
 			int cur_pix = i * scene.getWidth() + j;
 			int middle = (scene.getWidth() * scene.getHeight() / 2) + (scene.getWidth() / 2);
-			if (i == 250 && j == 297) {
+			if (i == 264 && j == 144) {
 				int break_here = 1;
 			}
 
@@ -58,7 +58,8 @@ int main(int argc, char* argv[]) {
 			// Begin ray tracing at 0 depth
 			// Reflection = 1, assuming camera is in air
 			// Pass in NULL as current object because the first ray originates from eye
-			Color pixel_color = Ray::TraceRay(ray, scene, 0, 1.0, NULL);
+			// Color pixel_color = Ray::TraceRay(ray, scene, 0, 1.0, NULL);
+			Color pixel_color = Ray::TraceRayFromOrigin(ray, scene);
 			pixel_color.clamp();
 			fout << pixel_color << endl;
 			if (i  == 60 && j == 238) {

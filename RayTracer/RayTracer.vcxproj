@@ -164,6 +164,7 @@
   <ItemGroup>
     <Text Include="cube_smooth.txt" />
     <Text Include="plane_and_shapes.txt" />
+    <Text Include="reflection_test.txt" />
     <Text Include="sphere_world.txt" />
     <Text Include="teapot.txt" />
     <Text Include="cube.txt" />

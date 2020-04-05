@@ -171,5 +171,8 @@
     <Text Include="plane_and_shapes.txt">
       <Filter>Resource Files\Scenes</Filter>
     </Text>
+    <Text Include="reflection_test.txt">
+      <Filter>Resource Files\Scenes</Filter>
+    </Text>
   </ItemGroup>
 </Project>

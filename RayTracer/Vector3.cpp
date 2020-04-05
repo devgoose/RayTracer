@@ -62,7 +62,7 @@ Vector3 Vector3::cross(const Vector3& v) {
 		(x * v.y) - (y * v.x));
 }
 
-float Vector3::dot(const Vector3& v) {
+float Vector3::dot(const Vector3& v) const {
 	return (x * v.x) + (y * v.y) + (z * v.z);
 }
 
@@ -78,4 +78,8 @@ Vector3 Vector3::toUnit() const {
 	vec.y = y / len;
 	vec.z = z / len;
 	return vec;
+}
+
+Vector3 Vector3::reverse() const {
+	return Vector3(-x, -y, -z);
 }

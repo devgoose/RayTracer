@@ -123,6 +123,11 @@ bool Scene::populate(string filename) {
 				cout << "Failure reading input for mtlcolor on line: " << line_number << endl;
 				return false;
 			}
+			if (alpha < 0 || alpha > 1 || eta < 1) {
+				cout << "Failure reading input for mtlcolor on line: " << line_number << endl;
+				cout << "Alpha or Eta values provided were invalid. \n";
+				return false;
+			}
 			Color diff = Color(rd, gd, bd);
 			Color spec = Color(rs, gs, bs);
 			Material* mtlcolor = new Material(diff, spec, ka, kd, ks, n, alpha, eta);

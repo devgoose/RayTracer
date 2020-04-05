@@ -5,6 +5,8 @@
 // M_PI may not be defined, use this instead
 const float C_M_PI = (float)3.141592653;
 
+
+
 Sphere::Sphere() 
 	: SceneObject() {
 	radius = 0;
@@ -61,8 +63,9 @@ bool Sphere::Intersect(const Ray& ray, Point3* intersection, const Scene& scene)
 	}
 	else {
 		// Two intersection points
-		t1 = (float)((float)(-B) + (float)sqrt(discriminant)) / (float)((float)2.0 * A);
-		t2 = (float)((float)(-B) - (float)sqrt(discriminant)) / (float)((float)2.0 * A);
+		// Subtract the minimum distance from them 
+		t1 = (float)((float)(-B) + (float)sqrt(discriminant)) / (float)((float)2.0 * A) - MIN_INTERSECT_DIST;
+		t2 = (float)((float)(-B) - (float)sqrt(discriminant)) / (float)((float)2.0 * A) - MIN_INTERSECT_DIST;
 		// Replace t with the closest parametric 
 		if (t1 > 0 && t2 > 0) {
 			t = std::min(t1, t2);
@@ -81,7 +84,8 @@ bool Sphere::Intersect(const Ray& ray, Point3* intersection, const Scene& scene)
 	}
 
 	// Set point and return true
-
+	// Return t back to original value
+	t += MIN_INTERSECT_DIST;
 
 	*intersection = Point3(ray.getPos() + (ray.getDirection() * t));
 	

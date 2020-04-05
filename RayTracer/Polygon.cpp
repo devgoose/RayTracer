@@ -64,6 +64,9 @@ bool Polygon::Intersect(const Ray& ray, Point3* intersection, const Scene& scene
 
 	Vector3 normal = e1.cross(e2).toUnit();
 
+	// Detect intersections if the triangle is facing the other way? 
+	
+
 	float A = normal.getX();
 	float B = normal.getY();
 	float C = normal.getZ();

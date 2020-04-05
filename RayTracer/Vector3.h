@@ -43,11 +43,12 @@ public:
 
 
 	Vector3 cross(const Vector3& v);
-	float dot(const Vector3& v);
+	float dot(const Vector3& v) const;
 	
 	float length() const;
 
 	Vector3 toUnit() const;
+	Vector3 reverse() const;
 
 
 };

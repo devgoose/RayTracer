@@ -44,6 +44,11 @@ public:
 
 	Vector3 operator-(const Point3& p) const;
 
+	/*
+	Returns a float distance between two points. 
+
+	Distance is in absolute value.
+	*/
 	float distance(const Point3& p) const;
 };
 
