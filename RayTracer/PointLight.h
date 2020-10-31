@@ -2,23 +2,21 @@
 #include "Light.h"
 #include "Point3.h"
 
-/*
-Inherits from Light class.
-
-PointLights have a position in 3d space.
-*/
+/**
+ * Inherits from light class. Acts as a point in space. 
+ */
 class PointLight :
-	public Light
+  public Light
 {
 private:
-	Point3 pos;
+  Point3 pos;
 
 public:
-	PointLight();
+  PointLight();
 
-	PointLight(const Color& color, const Point3& pos_);
+  PointLight(const Color& color, const Point3& pos_);
 
-	Point3 getPos() const { return pos; }
-	bool isPointLight() { return true; }
+  Point3 getPos() const { return pos; }
+  bool isPointLight() { return true; }
 };
 

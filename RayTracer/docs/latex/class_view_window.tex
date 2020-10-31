@@ -1,0 +1,74 @@
+\hypertarget{class_view_window}{}\doxysection{View\+Window Class Reference}
+\label{class_view_window}\index{ViewWindow@{ViewWindow}}
+
+
+{\ttfamily \#include $<$View\+Window.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_view_window_a2f38babf2b0b7fbe5877ee96b2e37fc6}\label{class_view_window_a2f38babf2b0b7fbe5877ee96b2e37fc6}} 
+{\bfseries View\+Window} (const \mbox{\hyperlink{class_scene}{Scene}} \&scene)
+\item 
+\mbox{\hyperlink{class_point3}{Point3}} \mbox{\hyperlink{class_view_window_a7a14dae61788b0fd5b6d614d084bed16}{get\+Point}} (int x, int y)
+\item 
+void \mbox{\hyperlink{class_view_window_ace49be101f4de1022e1f7ec2dfc577d4}{fill\+Corners}} (const \mbox{\hyperlink{class_scene}{Scene}} \&scene)
+\item 
+void \mbox{\hyperlink{class_view_window_aded4e61324daa3af418df56a535bcdbf}{fill\+Lattice}} (const \mbox{\hyperlink{class_scene}{Scene}} \&scene)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the projection plane from which rays are shot through. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_view_window_ace49be101f4de1022e1f7ec2dfc577d4}\label{class_view_window_ace49be101f4de1022e1f7ec2dfc577d4}} 
+\index{ViewWindow@{ViewWindow}!fillCorners@{fillCorners}}
+\index{fillCorners@{fillCorners}!ViewWindow@{ViewWindow}}
+\doxysubsubsection{\texorpdfstring{fillCorners()}{fillCorners()}}
+{\footnotesize\ttfamily void View\+Window\+::fill\+Corners (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_scene}{Scene}} \&}]{scene }\end{DoxyParamCaption})}
+
+Fills in the four corners of the windows from the settings in the scene.
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_view_window_aded4e61324daa3af418df56a535bcdbf}\label{class_view_window_aded4e61324daa3af418df56a535bcdbf}} 
+\index{ViewWindow@{ViewWindow}!fillLattice@{fillLattice}}
+\index{fillLattice@{fillLattice}!ViewWindow@{ViewWindow}}
+\doxysubsubsection{\texorpdfstring{fillLattice()}{fillLattice()}}
+{\footnotesize\ttfamily void View\+Window\+::fill\+Lattice (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_scene}{Scene}} \&}]{scene }\end{DoxyParamCaption})}
+
+Fills in the lattice of points given the four corners and the scene. \mbox{\hyperlink{class_view_window_ace49be101f4de1022e1f7ec2dfc577d4}{fill\+Corners()}} should be called before this.
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_view_window_a7a14dae61788b0fd5b6d614d084bed16}\label{class_view_window_a7a14dae61788b0fd5b6d614d084bed16}} 
+\index{ViewWindow@{ViewWindow}!getPoint@{getPoint}}
+\index{getPoint@{getPoint}!ViewWindow@{ViewWindow}}
+\doxysubsubsection{\texorpdfstring{getPoint()}{getPoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_point3}{Point3}} View\+Window\+::get\+Point (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Retrieves a point in the view lattice.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+point 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+View\+Window.\+h\item 
+View\+Window.\+cpp\end{DoxyCompactItemize}

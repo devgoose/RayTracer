@@ -1,0 +1,235 @@
+\hypertarget{class_ray}{}\doxysection{Ray Class Reference}
+\label{class_ray}\index{Ray@{Ray}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_ray_ad271526a5b13ec02778508dca1ece84d}{Ray\+Type}} \{ {\bfseries I\+N\+S\+I\+DE}, 
+\mbox{\hyperlink{class_ray_ad271526a5b13ec02778508dca1ece84da65f93561956ee2d613ae460fbc533e7b}{O\+U\+T\+S\+I\+DE}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ray_a5338de530c4dffae5e2f8b49a51ba891}{Ray}} (const \mbox{\hyperlink{class_point3}{Point3}} \&pos\+\_\+, const \mbox{\hyperlink{class_vector3}{Vector3}} \&direction\+\_\+)
+\item 
+\mbox{\Hypertarget{class_ray_ac9ba1e08164d54dfd70c7fa94d3a7219}\label{class_ray_ac9ba1e08164d54dfd70c7fa94d3a7219}} 
+\mbox{\hyperlink{class_point3}{Point3}} {\bfseries get\+Pos} () const
+\item 
+\mbox{\Hypertarget{class_ray_a855e5f0d89068da8400fa521df4e1544}\label{class_ray_a855e5f0d89068da8400fa521df4e1544}} 
+\mbox{\hyperlink{class_vector3}{Vector3}} {\bfseries get\+Direction} () const
+\item 
+\mbox{\hyperlink{class_ray}{Ray}} \mbox{\hyperlink{class_ray_aba6fe1f129e9c5bb6121e950cba2ab01}{jitter}} (float radius)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Color \mbox{\hyperlink{class_ray_ac568bacb245c2e5812009b1d0033ca2e}{Trace\+Ray}} (const \mbox{\hyperlink{class_ray}{Ray}} \&ray, const \mbox{\hyperlink{class_scene}{Scene}} \&scene, int depth, float fresnel\+\_\+product, const \mbox{\hyperlink{class_scene_object}{Scene\+Object}} $\ast$origin\+\_\+obj)
+\item 
+static Color \mbox{\hyperlink{class_ray_a6b088426e4d1c4370d3996349ecedbef}{Shade\+Ray}} (const \mbox{\hyperlink{class_ray}{Ray}} \&incident\+\_\+ray, const \mbox{\hyperlink{class_point3}{Point3}} \&point, const \mbox{\hyperlink{class_scene_object}{Scene\+Object}} $\ast$obj, const \mbox{\hyperlink{class_scene}{Scene}} \&scene, int depth, float fresnel\+\_\+product)
+\item 
+static bool \mbox{\hyperlink{class_ray_a17c29b8d775ad2c806912dff9fcc6cba}{Intersect\+All\+Objects}} (const \mbox{\hyperlink{class_ray}{Ray}} \&ray, const \mbox{\hyperlink{class_ray_ad271526a5b13ec02778508dca1ece84d}{Ray\+Type}} ray\+\_\+type, const \mbox{\hyperlink{class_scene_object}{Scene\+Object}} $\ast$origin\+\_\+obj, \mbox{\hyperlink{class_scene_object}{Scene\+Object}} $\ast$$\ast$closest\+\_\+obj, \mbox{\hyperlink{class_point3}{Point3}} $\ast$closest\+\_\+point, const \mbox{\hyperlink{class_scene}{Scene}} \&scene)
+\item 
+static Color \mbox{\hyperlink{class_ray_abbabaf0ed2d6941a3c747aee31ba4d4b}{Trace\+Ray\+From\+Origin}} (const \mbox{\hyperlink{class_ray}{Ray}} \&incident\+\_\+ray, const \mbox{\hyperlink{class_scene}{Scene}} \&scene)
+\item 
+static Color \mbox{\hyperlink{class_ray_a7b31b7d1585e4e29f3b820a1c9d73695}{Recursive\+Trace\+Ray}} (const \mbox{\hyperlink{class_ray}{Ray}} \&incident\+\_\+ray, const \mbox{\hyperlink{class_scene_object}{Scene\+Object}} $\ast$origin\+\_\+obj, const \mbox{\hyperlink{class_scene_object}{Scene\+Object}} $\ast$medium, const \mbox{\hyperlink{class_scene}{Scene}} \&scene, int depth, float multiplier, \mbox{\hyperlink{class_ray_ad271526a5b13ec02778508dca1ece84d}{Ray\+Type}} ray\+\_\+type)
+\item 
+static Color \mbox{\hyperlink{class_ray_aa021e37c8c3b58b466a4c0c4475e72d8}{Get\+Local\+Illumination}} (const \mbox{\hyperlink{class_vector3}{Vector3}} \&incident\+\_\+dir, const \mbox{\hyperlink{class_ray_ad271526a5b13ec02778508dca1ece84d}{Ray\+Type}} ray\+\_\+type, const \mbox{\hyperlink{class_point3}{Point3}} point, const \mbox{\hyperlink{class_scene_object}{Scene\+Object}} $\ast$local\+\_\+obj, const \mbox{\hyperlink{class_scene}{Scene}} \&scene)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_ray_ad271526a5b13ec02778508dca1ece84d}\label{class_ray_ad271526a5b13ec02778508dca1ece84d}} 
+\index{Ray@{Ray}!RayType@{RayType}}
+\index{RayType@{RayType}!Ray@{Ray}}
+\doxysubsubsection{\texorpdfstring{RayType}{RayType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_ray_ad271526a5b13ec02778508dca1ece84d}{Ray\+::\+Ray\+Type}}}
+
+Enum for identifying what kind of ray this ray is.
+
+I\+N\+S\+I\+DE \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTSIDE@{OUTSIDE}!Ray@{Ray}}\index{Ray@{Ray}!OUTSIDE@{OUTSIDE}}}\mbox{\Hypertarget{class_ray_ad271526a5b13ec02778508dca1ece84da65f93561956ee2d613ae460fbc533e7b}\label{class_ray_ad271526a5b13ec02778508dca1ece84da65f93561956ee2d613ae460fbc533e7b}} 
+O\+U\+T\+S\+I\+DE&\mbox{\hyperlink{class_ray}{Ray}} is inside of a material (was refracted) \mbox{\hyperlink{class_ray}{Ray}} is outside of a material (was reflected) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_ray_a5338de530c4dffae5e2f8b49a51ba891}\label{class_ray_a5338de530c4dffae5e2f8b49a51ba891}} 
+\index{Ray@{Ray}!Ray@{Ray}}
+\index{Ray@{Ray}!Ray@{Ray}}
+\doxysubsubsection{\texorpdfstring{Ray()}{Ray()}}
+{\footnotesize\ttfamily Ray\+::\+Ray (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_point3}{Point3}} \&}]{pos\+\_\+,  }\item[{const \mbox{\hyperlink{class_vector3}{Vector3}} \&}]{direction\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor takes a position and direction. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ray_aa021e37c8c3b58b466a4c0c4475e72d8}\label{class_ray_aa021e37c8c3b58b466a4c0c4475e72d8}} 
+\index{Ray@{Ray}!GetLocalIllumination@{GetLocalIllumination}}
+\index{GetLocalIllumination@{GetLocalIllumination}!Ray@{Ray}}
+\doxysubsubsection{\texorpdfstring{GetLocalIllumination()}{GetLocalIllumination()}}
+{\footnotesize\ttfamily Color Ray\+::\+Get\+Local\+Illumination (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector3}{Vector3}} \&}]{incident\+\_\+dir,  }\item[{const \mbox{\hyperlink{class_ray_ad271526a5b13ec02778508dca1ece84d}{Ray\+Type}}}]{ray\+\_\+type,  }\item[{const \mbox{\hyperlink{class_point3}{Point3}}}]{point,  }\item[{const \mbox{\hyperlink{class_scene_object}{Scene\+Object}} $\ast$}]{local\+\_\+obj,  }\item[{const \mbox{\hyperlink{class_scene}{Scene}} \&}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Calculates local illumination from a point, incident ray, and an object\textquotesingle{}s material properties, using the lights in the scene and the Phong illumination model.
+
+
+\begin{DoxyParams}{Parameters}
+{\em incident\+\_\+dir} & direction of an incident ray \\
+\hline
+{\em ray\+\_\+type} & \\
+\hline
+{\em point} & point of collision with the object \\
+\hline
+{\em local\+\_\+obj} & object on which illumination is calculated \\
+\hline
+{\em scene} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Color representing local illumination 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ray_a17c29b8d775ad2c806912dff9fcc6cba}\label{class_ray_a17c29b8d775ad2c806912dff9fcc6cba}} 
+\index{Ray@{Ray}!IntersectAllObjects@{IntersectAllObjects}}
+\index{IntersectAllObjects@{IntersectAllObjects}!Ray@{Ray}}
+\doxysubsubsection{\texorpdfstring{IntersectAllObjects()}{IntersectAllObjects()}}
+{\footnotesize\ttfamily bool Ray\+::\+Intersect\+All\+Objects (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ray}{Ray}} \&}]{ray,  }\item[{const \mbox{\hyperlink{class_ray_ad271526a5b13ec02778508dca1ece84d}{Ray\+Type}}}]{ray\+\_\+type,  }\item[{const \mbox{\hyperlink{class_scene_object}{Scene\+Object}} $\ast$}]{origin\+\_\+obj,  }\item[{\mbox{\hyperlink{class_scene_object}{Scene\+Object}} $\ast$$\ast$}]{closest\+\_\+obj,  }\item[{\mbox{\hyperlink{class_point3}{Point3}} $\ast$}]{closest\+\_\+point,  }\item[{const \mbox{\hyperlink{class_scene}{Scene}} \&}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Helper functino for ray tracing. Tests if the ray intersects anything in the scene other than itself, and if so, it sets closest\+\_\+obj to point to the closest object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & ray to test for intersections \\
+\hline
+{\em origin\+\_\+obj} & object the array comes from, this cannot be intersected \\
+\hline
+{\em closest\+\_\+obj} & should be a N\+U\+LL pointer, is pointed to closest object if intersections exist \\
+\hline
+{\em closest\+\_\+point} & should be N\+U\+LL, is set to the intersection point on the closest object \\
+\hline
+{\em scene} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if closest\+\_\+obj and closest\+\_\+point were set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ray_aba6fe1f129e9c5bb6121e950cba2ab01}\label{class_ray_aba6fe1f129e9c5bb6121e950cba2ab01}} 
+\index{Ray@{Ray}!jitter@{jitter}}
+\index{jitter@{jitter}!Ray@{Ray}}
+\doxysubsubsection{\texorpdfstring{jitter()}{jitter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_ray}{Ray}} Ray\+::jitter (\begin{DoxyParamCaption}\item[{float}]{radius }\end{DoxyParamCaption})}
+
+Adds a small bit of variation to the direction of the array. Does not modify this ray.
+
+
+\begin{DoxyParams}{Parameters}
+{\em radius} & radius of the orthogonal circle at the end of the ray\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new \mbox{\hyperlink{class_ray}{Ray}} that is slightly offset 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ray_a7b31b7d1585e4e29f3b820a1c9d73695}\label{class_ray_a7b31b7d1585e4e29f3b820a1c9d73695}} 
+\index{Ray@{Ray}!RecursiveTraceRay@{RecursiveTraceRay}}
+\index{RecursiveTraceRay@{RecursiveTraceRay}!Ray@{Ray}}
+\doxysubsubsection{\texorpdfstring{RecursiveTraceRay()}{RecursiveTraceRay()}}
+{\footnotesize\ttfamily Color Ray\+::\+Recursive\+Trace\+Ray (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ray}{Ray}} \&}]{incident\+\_\+ray,  }\item[{const \mbox{\hyperlink{class_scene_object}{Scene\+Object}} $\ast$}]{origin\+\_\+obj,  }\item[{const \mbox{\hyperlink{class_scene_object}{Scene\+Object}} $\ast$}]{medium,  }\item[{const \mbox{\hyperlink{class_scene}{Scene}} \&}]{scene,  }\item[{int}]{depth,  }\item[{float}]{multiplier,  }\item[{\mbox{\hyperlink{class_ray_ad271526a5b13ec02778508dca1ece84d}{Ray\+::\+Ray\+Type}}}]{ray\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Recursive functino that can be used for tracing all reflected and refracted rays. Calculates the color from local illumination, and is then recursively called on each other ray in the Phong model.
+
+
+\begin{DoxyParams}{Parameters}
+{\em incident\+\_\+ray} & incoming ray, facing direction of the trace \\
+\hline
+{\em origin\+\_\+obj} & object that the ray comes from/is travelling through \\
+\hline
+{\em medium} & used to calculate index of refraction, this is always air unless a refracted ray enters an object or exits an object \\
+\hline
+{\em scene} & \\
+\hline
+{\em depth} & recursive depth counter \\
+\hline
+{\em multiplier} & cumulative multiplier applied to each color that is recursively traced by a ray, and will return black if this multiplier is below M\+I\+N\+I\+M\+U\+M\+\_\+\+C\+O\+L\+O\+R\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+I\+ON \\
+\hline
+{\em ray\+\_\+type} & type of the incident ray\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Color traced 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ray_a6b088426e4d1c4370d3996349ecedbef}\label{class_ray_a6b088426e4d1c4370d3996349ecedbef}} 
+\index{Ray@{Ray}!ShadeRay@{ShadeRay}}
+\index{ShadeRay@{ShadeRay}!Ray@{Ray}}
+\doxysubsubsection{\texorpdfstring{ShadeRay()}{ShadeRay()}}
+{\footnotesize\ttfamily Color Ray\+::\+Shade\+Ray (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ray}{Ray}} \&}]{incident\+\_\+ray,  }\item[{const \mbox{\hyperlink{class_point3}{Point3}} \&}]{point,  }\item[{const \mbox{\hyperlink{class_scene_object}{Scene\+Object}} $\ast$}]{obj,  }\item[{const \mbox{\hyperlink{class_scene}{Scene}} \&}]{scene,  }\item[{int}]{depth,  }\item[{float}]{fresnel\+\_\+product }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Main function for tracing rays at intersection points and for determining the color of a pixel if it is not to be the scene\textquotesingle{}s background color.
+
+Loops through every light in the scene and draws a ray from the intersection point provided to those lights to determine if it intersects any object or not. For soft shadows, ray.\+cpp provides some globals that can be toggled when building though this should probably be modified in the future so it can be taken in as an input file.
+
+For soft shadows, \mbox{\hyperlink{class_ray_aba6fe1f129e9c5bb6121e950cba2ab01}{jitter()}} is called many times and a sample of rays is shot from each intersection point so that an object in shadow can have a blend between its ambient color and its lit up color.
+
+A fourth argument depth should start at 0 with the initial call. 
+\begin{DoxyParams}{Parameters}
+{\em incident\+\_\+ray} & ray that reflects off obj towards something else \\
+\hline
+{\em point} & point from which the ray comes from \\
+\hline
+{\em obj} & obj that the ray comes from \\
+\hline
+{\em scene} & \\
+\hline
+{\em depth} & recursive depth counter \\
+\hline
+{\em fresnel\+\_\+product} & recursive transparency accumulator\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Color to be shaded from this ray 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ray_ac568bacb245c2e5812009b1d0033ca2e}\label{class_ray_ac568bacb245c2e5812009b1d0033ca2e}} 
+\index{Ray@{Ray}!TraceRay@{TraceRay}}
+\index{TraceRay@{TraceRay}!Ray@{Ray}}
+\doxysubsubsection{\texorpdfstring{TraceRay()}{TraceRay()}}
+{\footnotesize\ttfamily Color Ray\+::\+Trace\+Ray (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ray}{Ray}} \&}]{ray,  }\item[{const \mbox{\hyperlink{class_scene}{Scene}} \&}]{scene,  }\item[{int}]{depth,  }\item[{float}]{fresnel\+\_\+product,  }\item[{const \mbox{\hyperlink{class_scene_object}{Scene\+Object}} $\ast$}]{origin\+\_\+obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Main ray tracing function. Given a ray that is shot from an eye, reflects the ray throughout the scene and returns a color to be eventually drawn/recorded.
+
+If an object is intersected by this ray, calls \mbox{\hyperlink{class_ray_a6b088426e4d1c4370d3996349ecedbef}{Shade\+Ray()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & \mbox{\hyperlink{class_ray}{Ray}} to trace \\
+\hline
+{\em scene} & \\
+\hline
+{\em depth} & Recursive depth counter \\
+\hline
+{\em fresnel\+\_\+prodcut} & Accumulator for transparency \\
+\hline
+{\em origin\+\_\+obj} & points to the object that the ray originates from. If comes from the eye, this is null \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_ray_abbabaf0ed2d6941a3c747aee31ba4d4b}\label{class_ray_abbabaf0ed2d6941a3c747aee31ba4d4b}} 
+\index{Ray@{Ray}!TraceRayFromOrigin@{TraceRayFromOrigin}}
+\index{TraceRayFromOrigin@{TraceRayFromOrigin}!Ray@{Ray}}
+\doxysubsubsection{\texorpdfstring{TraceRayFromOrigin()}{TraceRayFromOrigin()}}
+{\footnotesize\ttfamily Color Ray\+::\+Trace\+Ray\+From\+Origin (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ray}{Ray}} \&}]{incident\+\_\+ray,  }\item[{const \mbox{\hyperlink{class_scene}{Scene}} \&}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Begin ray tracing given a ray, assumed to be originating in air, and with an origin at the scene\textquotesingle{}s eye.
+
+
+\begin{DoxyParams}{Parameters}
+{\em incident\+\_\+ray} & incoming ray, facing the direction of the trace \\
+\hline
+{\em scene} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Color as a result of the trace 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Ray.\+h\item 
+Ray.\+cpp\end{DoxyCompactItemize}

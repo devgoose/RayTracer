@@ -1,0 +1,45 @@
+\hypertarget{class_depth_cue}{}\doxysection{Depth\+Cue Class Reference}
+\label{class_depth_cue}\index{DepthCue@{DepthCue}}
+
+
+{\ttfamily \#include $<$Depth\+Cue.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_depth_cue_a8001b4550a8d24c86b2bb4248b89ebb9}\label{class_depth_cue_a8001b4550a8d24c86b2bb4248b89ebb9}} 
+{\bfseries Depth\+Cue} (const Color \&depth\+Color\+\_\+, float amax, float amin, float distmax, float distmin)
+\item 
+\mbox{\Hypertarget{class_depth_cue_abb1dab4f4182a529af76155506400f7b}\label{class_depth_cue_abb1dab4f4182a529af76155506400f7b}} 
+Color {\bfseries get\+Color} () const
+\item 
+float \mbox{\hyperlink{class_depth_cue_a4f8c84cf840aa152d26b9407f2914ac0}{get\+Depth\+Cue\+Factor}} (float view\+\_\+dist) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds information for a scene\textquotesingle{}s depthcueing settings, if enabled. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_depth_cue_a4f8c84cf840aa152d26b9407f2914ac0}\label{class_depth_cue_a4f8c84cf840aa152d26b9407f2914ac0}} 
+\index{DepthCue@{DepthCue}!getDepthCueFactor@{getDepthCueFactor}}
+\index{getDepthCueFactor@{getDepthCueFactor}!DepthCue@{DepthCue}}
+\doxysubsubsection{\texorpdfstring{getDepthCueFactor()}{getDepthCueFactor()}}
+{\footnotesize\ttfamily float Depth\+Cue\+::get\+Depth\+Cue\+Factor (\begin{DoxyParamCaption}\item[{float}]{view\+\_\+dist }\end{DoxyParamCaption}) const}
+
+Calculates the depth cue factor to be applied to some object at some distance away.
+
+
+\begin{DoxyParams}{Parameters}
+{\em view\+\_\+dist} & distance away to be calculated\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+depth cue factor 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Depth\+Cue.\+h\item 
+Depth\+Cue.\+cpp\end{DoxyCompactItemize}

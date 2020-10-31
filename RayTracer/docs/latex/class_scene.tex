@@ -1,0 +1,96 @@
+\hypertarget{class_scene}{}\doxysection{Scene Class Reference}
+\label{class_scene}\index{Scene@{Scene}}
+
+
+{\ttfamily \#include $<$Scene.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_scene_acc03a698bd68ffbbac2c04e11a129095}\label{class_scene_acc03a698bd68ffbbac2c04e11a129095}} 
+\mbox{\hyperlink{class_point3}{Point3}} {\bfseries get\+Eye} () const
+\item 
+\mbox{\Hypertarget{class_scene_ae64105ad4135b9e84833847255c21713}\label{class_scene_ae64105ad4135b9e84833847255c21713}} 
+\mbox{\hyperlink{class_vector3}{Vector3}} {\bfseries get\+Viewdir} () const
+\item 
+\mbox{\Hypertarget{class_scene_a9e8609071e1434a33cd575a4097dc98b}\label{class_scene_a9e8609071e1434a33cd575a4097dc98b}} 
+\mbox{\hyperlink{class_vector3}{Vector3}} {\bfseries get\+Updir} () const
+\item 
+\mbox{\Hypertarget{class_scene_adcfad274035886e03e777fecc1426f82}\label{class_scene_adcfad274035886e03e777fecc1426f82}} 
+int {\bfseries get\+Width} () const
+\item 
+\mbox{\Hypertarget{class_scene_a2f70fe552109abb0bcff6c6a5d6d6f24}\label{class_scene_a2f70fe552109abb0bcff6c6a5d6d6f24}} 
+int {\bfseries get\+Height} () const
+\item 
+\mbox{\Hypertarget{class_scene_ab620201e30520ad8403f34114b19c0b2}\label{class_scene_ab620201e30520ad8403f34114b19c0b2}} 
+float {\bfseries get\+Hfov} () const
+\item 
+\mbox{\Hypertarget{class_scene_a272877e06f59a7ee54efe1017ffb8f8e}\label{class_scene_a272877e06f59a7ee54efe1017ffb8f8e}} 
+Color {\bfseries get\+Bkgcolor} () const
+\item 
+\mbox{\Hypertarget{class_scene_aac7edd494eeba15d28599ef441dbc352}\label{class_scene_aac7edd494eeba15d28599ef441dbc352}} 
+Light $\ast$ {\bfseries get\+Light} (int i) const
+\item 
+\mbox{\Hypertarget{class_scene_a72436b4affb3044ee2f8e3ec1e94db49}\label{class_scene_a72436b4affb3044ee2f8e3ec1e94db49}} 
+\mbox{\hyperlink{class_scene_object}{Scene\+Object}} $\ast$ {\bfseries get\+Object} (int i) const
+\item 
+\mbox{\Hypertarget{class_scene_a35ed2b4c9c3a1dbb98edd8d528167a13}\label{class_scene_a35ed2b4c9c3a1dbb98edd8d528167a13}} 
+\mbox{\hyperlink{class_point3}{Point3}} $\ast$ {\bfseries get\+Vertex} (int i) const
+\item 
+\mbox{\Hypertarget{class_scene_aa39019a3ef5db00292da9fcd7317f3d1}\label{class_scene_aa39019a3ef5db00292da9fcd7317f3d1}} 
+\mbox{\hyperlink{class_vector3}{Vector3}} $\ast$ {\bfseries get\+Normal} (int i) const
+\item 
+\mbox{\Hypertarget{class_scene_afc60f2b9e46a6a39ea2a32b9e9d53ee6}\label{class_scene_afc60f2b9e46a6a39ea2a32b9e9d53ee6}} 
+\mbox{\hyperlink{class_vector2}{Vector2}} $\ast$ {\bfseries get\+Texcoord} (int i) const
+\item 
+\mbox{\Hypertarget{class_scene_ae9354744c0fec4946f1aff15dbd931a2}\label{class_scene_ae9354744c0fec4946f1aff15dbd931a2}} 
+\mbox{\hyperlink{class_material}{Material}} $\ast$ {\bfseries get\+Material} (int i) const
+\item 
+\mbox{\Hypertarget{class_scene_a5261cdea3c568de174f5cbe27b5677c9}\label{class_scene_a5261cdea3c568de174f5cbe27b5677c9}} 
+\mbox{\hyperlink{class_texture}{Texture}} $\ast$ {\bfseries get\+Texture} (int i) const
+\item 
+\mbox{\Hypertarget{class_scene_a080c00edc73e44ee5dc8af8b005cc8a4}\label{class_scene_a080c00edc73e44ee5dc8af8b005cc8a4}} 
+int {\bfseries get\+Num\+Objects} () const
+\item 
+\mbox{\Hypertarget{class_scene_ab5548985a2067930a2a0c10dfd82b7e3}\label{class_scene_ab5548985a2067930a2a0c10dfd82b7e3}} 
+int {\bfseries get\+Num\+Lights} () const
+\item 
+\mbox{\Hypertarget{class_scene_ae632185ef397219fb5736c36679a3afd}\label{class_scene_ae632185ef397219fb5736c36679a3afd}} 
+\mbox{\hyperlink{class_depth_cue}{Depth\+Cue}} {\bfseries get\+Depth\+Cue} () const
+\item 
+\mbox{\Hypertarget{class_scene_adee7f5e2381cea82e4b8bc1529f481a9}\label{class_scene_adee7f5e2381cea82e4b8bc1529f481a9}} 
+bool {\bfseries is\+Depth\+Cued} () const
+\item 
+bool \mbox{\hyperlink{class_scene_a6944e8aa8c353f6eaf8f19b8468567da}{populate}} (std\+::string filename)
+\item 
+\mbox{\Hypertarget{class_scene_a46b45d824b110bfcd54847239b76a940}\label{class_scene_a46b45d824b110bfcd54847239b76a940}} 
+{\footnotesize template$<$class T $>$ }\\void {\bfseries deallocate\+\_\+vector} (vector$<$ T $>$ vec)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that contains all information for a 3D scene. Includes references to the camera, image settings, depthcueing settings, and all objects and lights located in the scene. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_scene_a6944e8aa8c353f6eaf8f19b8468567da}\label{class_scene_a6944e8aa8c353f6eaf8f19b8468567da}} 
+\index{Scene@{Scene}!populate@{populate}}
+\index{populate@{populate}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{populate()}{populate()}}
+{\footnotesize\ttfamily bool Scene\+::populate (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+Initializes, or \char`\"{}populates\char`\"{} the scene with data included in the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & name of the input config file\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful reading of the file 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Scene.\+h\item 
+Scene.\+cpp\end{DoxyCompactItemize}

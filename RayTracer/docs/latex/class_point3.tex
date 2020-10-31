@@ -1,0 +1,126 @@
+\hypertarget{class_point3}{}\doxysection{Point3 Class Reference}
+\label{class_point3}\index{Point3@{Point3}}
+
+
+{\ttfamily \#include $<$Point3.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_point3_a9a22451b2dd7f2b26ad5a3e9b74c8eca}{Point3}} ()
+\item 
+\mbox{\Hypertarget{class_point3_afc7b820e839f8fd4b4bbfc412e19341b}\label{class_point3_afc7b820e839f8fd4b4bbfc412e19341b}} 
+{\bfseries Point3} (float x\+\_\+, float y\+\_\+, float z\+\_\+)
+\item 
+\mbox{\Hypertarget{class_point3_ae0da3d624f2f1b0fe84956c5540465f0}\label{class_point3_ae0da3d624f2f1b0fe84956c5540465f0}} 
+{\bfseries Point3} (const \mbox{\hyperlink{class_point3}{Point3}} \&p2)
+\item 
+\mbox{\Hypertarget{class_point3_a6472ea1e66f2279b7632858726aab973}\label{class_point3_a6472ea1e66f2279b7632858726aab973}} 
+float {\bfseries getX} ()
+\item 
+\mbox{\Hypertarget{class_point3_a1383d1265d72398d9d0a4bb14c10d09f}\label{class_point3_a1383d1265d72398d9d0a4bb14c10d09f}} 
+float {\bfseries getY} ()
+\item 
+\mbox{\Hypertarget{class_point3_a07dd1107ddb28f00610f09c41e1749fc}\label{class_point3_a07dd1107ddb28f00610f09c41e1749fc}} 
+float {\bfseries getZ} ()
+\item 
+\mbox{\Hypertarget{class_point3_aec609541d093268c61159b839ca3b35e}\label{class_point3_aec609541d093268c61159b839ca3b35e}} 
+void {\bfseries setX} (float x\+\_\+)
+\item 
+\mbox{\Hypertarget{class_point3_aaeab8fac19d995c0401cdf52c4fe5608}\label{class_point3_aaeab8fac19d995c0401cdf52c4fe5608}} 
+void {\bfseries setY} (float y\+\_\+)
+\item 
+\mbox{\Hypertarget{class_point3_add55f2bc9a850fa7c57bec84299e9048}\label{class_point3_add55f2bc9a850fa7c57bec84299e9048}} 
+void {\bfseries setZ} (float z\+\_\+)
+\item 
+\mbox{\hyperlink{class_point3}{Point3}} \mbox{\hyperlink{class_point3_a677515607e08ead38622f927df0bbc59}{operator+}} (const \mbox{\hyperlink{class_vector3}{Vector3}} \&v)
+\item 
+\mbox{\hyperlink{class_point3}{Point3}} \mbox{\hyperlink{class_point3_a055786c56b273e38d4b1238a8f75156a}{operator-\/}} (const \mbox{\hyperlink{class_vector3}{Vector3}} \&v)
+\item 
+\mbox{\hyperlink{class_vector3}{Vector3}} \mbox{\hyperlink{class_point3_af9d246a61e00cb9d72e98b226da1a5cd}{operator-\/}} (const \mbox{\hyperlink{class_point3}{Point3}} \&p) const
+\item 
+float \mbox{\hyperlink{class_point3_a5541f0171d7081129ff81f022311eeb8}{distance}} (const \mbox{\hyperlink{class_point3}{Point3}} \&p) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds a point in 3D space. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_point3_a9a22451b2dd7f2b26ad5a3e9b74c8eca}\label{class_point3_a9a22451b2dd7f2b26ad5a3e9b74c8eca}} 
+\index{Point3@{Point3}!Point3@{Point3}}
+\index{Point3@{Point3}!Point3@{Point3}}
+\doxysubsubsection{\texorpdfstring{Point3()}{Point3()}}
+{\footnotesize\ttfamily Point3\+::\+Point3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor sets point at the origin. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_point3_a5541f0171d7081129ff81f022311eeb8}\label{class_point3_a5541f0171d7081129ff81f022311eeb8}} 
+\index{Point3@{Point3}!distance@{distance}}
+\index{distance@{distance}!Point3@{Point3}}
+\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily float Point3\+::distance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_point3}{Point3}} \&}]{p }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+distance from this to p 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_point3_a677515607e08ead38622f927df0bbc59}\label{class_point3_a677515607e08ead38622f927df0bbc59}} 
+\index{Point3@{Point3}!operator+@{operator+}}
+\index{operator+@{operator+}!Point3@{Point3}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_point3}{Point3}} Point3\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector3}{Vector3}} \&}]{v }\end{DoxyParamCaption})}
+
+Overloaded addition operator. Adds a point to a vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new Point object that is the sum 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_point3_af9d246a61e00cb9d72e98b226da1a5cd}\label{class_point3_af9d246a61e00cb9d72e98b226da1a5cd}} 
+\index{Point3@{Point3}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Point3@{Point3}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector3}{Vector3}} Point3\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_point3}{Point3}} \&}]{p }\end{DoxyParamCaption}) const}
+
+Overloaded subtraction operator.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & point\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new Vector object that points from one point to the other 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_point3_a055786c56b273e38d4b1238a8f75156a}\label{class_point3_a055786c56b273e38d4b1238a8f75156a}} 
+\index{Point3@{Point3}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Point3@{Point3}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_point3}{Point3}} Point3\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector3}{Vector3}} \&}]{v }\end{DoxyParamCaption})}
+
+Overloaded subtraction operator.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new Point object that is the difference 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Point3.\+h\item 
+Point3.\+cpp\end{DoxyCompactItemize}

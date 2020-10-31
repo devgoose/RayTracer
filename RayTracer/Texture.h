@@ -3,24 +3,49 @@
 #include <string>
 #include <vector>
 
+/**
+ * Class that holds an image texture.
+ */
 class Color;
 
 class Texture
 {
 private:
-	// Vector of colors, each corresponding to a pixel defined a ppm image
-	std::vector< std::vector<Color*> > texture;
-	int height, width;
+  /**
+   * 2D array of colors. 
+   */
+  std::vector< std::vector<Color*> > texture;
+  int height, width;
 public:
-	Texture();
-	Texture(std::string filename);
-	~Texture();
+  Texture();
+  /**
+   * Constructor that initializes the texture with the file. 
+   * 
+   * @param filename filepath for a .ppm texture file
+   */
+  Texture(std::string filename);
+  ~Texture();
 
-	int getHeight() const { return height; }
-	int getWidth() const { return width; }
+  int getHeight() const { return height; }
+  int getWidth() const { return width; }
 
-	Color* getColorAtCoord(int i, int j) const;
+  /**
+   * Retrieves a color at the texture coordinates.
+   * 
+   * @param i
+   * @param j
+   * 
+   * @return color
+   */
+  Color* getColorAtCoord(int i, int j) const;
 
-	bool load(std::string filename);
+  /**
+   * Loads the texture from a file
+   * 
+   * @param filename file path for a .ppm texture file
+   * 
+   * @return true if successfully loaded
+   */
+  bool load(std::string filename);
 };
 

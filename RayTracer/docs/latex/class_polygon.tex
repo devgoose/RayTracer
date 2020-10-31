@@ -1,0 +1,175 @@
+\hypertarget{class_polygon}{}\doxysection{Polygon Class Reference}
+\label{class_polygon}\index{Polygon@{Polygon}}
+
+
+{\ttfamily \#include $<$Polygon.\+h$>$}
+
+Inheritance diagram for Polygon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_polygon}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_polygon_a7101ca1573c7d07bfd7c8e3bec72aff4}\label{class_polygon_a7101ca1573c7d07bfd7c8e3bec72aff4}} 
+{\bfseries Polygon} (int v1, int v2, int v3, const int mtl\+\_\+index\+\_\+, const int tex\+\_\+index\+\_\+)
+\item 
+\mbox{\Hypertarget{class_polygon_a8915e7b6203b2c6a72249323fda8bf2c}\label{class_polygon_a8915e7b6203b2c6a72249323fda8bf2c}} 
+{\bfseries Polygon} (int v1, int v2, int v3, int t1, int t2, int t3, const int mtl\+\_\+index\+\_\+, const int tex\+\_\+index\+\_\+)
+\item 
+\mbox{\hyperlink{class_polygon_ab3a7b32b6de7e367d90848d3c696c0c2}{Polygon}} (int v1, int v2, int v3, int t1, int t2, int t3, int n1, int n2, int n3, const int mtl\+\_\+index\+\_\+, const int tex\+\_\+index\+\_\+)
+\item 
+\mbox{\Hypertarget{class_polygon_ae67a9214eb9e022b2f0fb871d7a7fa7a}\label{class_polygon_ae67a9214eb9e022b2f0fb871d7a7fa7a}} 
+void {\bfseries set\+Tex\+Indices} (int t1, int t2, int t3)
+\item 
+\mbox{\Hypertarget{class_polygon_a27ba4835ad2c0e01ad02d17c8c0be132}\label{class_polygon_a27ba4835ad2c0e01ad02d17c8c0be132}} 
+void {\bfseries set\+Normal\+Indices} (int n1, int n2, int n3)
+\item 
+void \mbox{\hyperlink{class_polygon_a5845f45ba662aa3ff09d8e8b58053f82}{get\+Barycentric}} (const \mbox{\hyperlink{class_point3}{Point3}} \&intersection, float $\ast$alpha, float $\ast$beta, float $\ast$gamma, const \mbox{\hyperlink{class_scene}{Scene}} \&scene) const
+\item 
+Color \mbox{\hyperlink{class_polygon_ae816021569f5e8c90e240dc1a78f5e2f}{get\+Diffuse\+Color\+At\+Point}} (const \mbox{\hyperlink{class_point3}{Point3}} \&intersection, const \mbox{\hyperlink{class_scene}{Scene}} \&scene) const override
+\item 
+bool \mbox{\hyperlink{class_polygon_a86bdf30f5759b0e80cf9be9f8b8b736d}{Intersect}} (const \mbox{\hyperlink{class_ray}{Ray}} \&ray, \mbox{\hyperlink{class_point3}{Point3}} $\ast$intersection, const \mbox{\hyperlink{class_scene}{Scene}} \&scene) const override
+\item 
+\mbox{\hyperlink{class_vector3}{Vector3}} \mbox{\hyperlink{class_polygon_a2dd10602fcfae9e913f7646a13b471f9}{get\+Normal}} (const \mbox{\hyperlink{class_point3}{Point3}} \&point, const \mbox{\hyperlink{class_scene}{Scene}} \&scene) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Class for a triangle. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_polygon_ab3a7b32b6de7e367d90848d3c696c0c2}\label{class_polygon_ab3a7b32b6de7e367d90848d3c696c0c2}} 
+\index{Polygon@{Polygon}!Polygon@{Polygon}}
+\index{Polygon@{Polygon}!Polygon@{Polygon}}
+\doxysubsubsection{\texorpdfstring{Polygon()}{Polygon()}}
+{\footnotesize\ttfamily Polygon\+::\+Polygon (\begin{DoxyParamCaption}\item[{int}]{v1,  }\item[{int}]{v2,  }\item[{int}]{v3,  }\item[{int}]{t1,  }\item[{int}]{t2,  }\item[{int}]{t3,  }\item[{int}]{n1,  }\item[{int}]{n2,  }\item[{int}]{n3,  }\item[{const int}]{mtl\+\_\+index\+\_\+,  }\item[{const int}]{tex\+\_\+index\+\_\+ }\end{DoxyParamCaption})}
+
+Complete constructor for a polygon.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & vertex index \\
+\hline
+{\em v2} & vertex index \\
+\hline
+{\em v3} & vertex index \\
+\hline
+{\em t1} & texture index \\
+\hline
+{\em t2} & texture index \\
+\hline
+{\em t3} & texture index \\
+\hline
+{\em n1} & normal index \\
+\hline
+{\em n2} & normal index \\
+\hline
+{\em n3} & normal index \\
+\hline
+{\em mtl\+\_\+index\+\_\+} & material index \\
+\hline
+{\em tex\+\_\+index\+\_\+} & texture index for the actual loaded texture image \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_polygon_a5845f45ba662aa3ff09d8e8b58053f82}\label{class_polygon_a5845f45ba662aa3ff09d8e8b58053f82}} 
+\index{Polygon@{Polygon}!getBarycentric@{getBarycentric}}
+\index{getBarycentric@{getBarycentric}!Polygon@{Polygon}}
+\doxysubsubsection{\texorpdfstring{getBarycentric()}{getBarycentric()}}
+{\footnotesize\ttfamily void Polygon\+::get\+Barycentric (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_point3}{Point3}} \&}]{intersection,  }\item[{float $\ast$}]{alpha,  }\item[{float $\ast$}]{beta,  }\item[{float $\ast$}]{gamma,  }\item[{const \mbox{\hyperlink{class_scene}{Scene}} \&}]{scene }\end{DoxyParamCaption}) const}
+
+Calcluates barycentric coordinates of a point and sets alpha, beta, and gamma values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em intersection} & Point from which to calculate coordinates \\
+\hline
+{\em alpha} & barycentric coord to be set \\
+\hline
+{\em beta} & barycentric coord to be set \\
+\hline
+{\em gamma} & barycentric coord to be set \\
+\hline
+{\em scene} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_polygon_ae816021569f5e8c90e240dc1a78f5e2f}\label{class_polygon_ae816021569f5e8c90e240dc1a78f5e2f}} 
+\index{Polygon@{Polygon}!getDiffuseColorAtPoint@{getDiffuseColorAtPoint}}
+\index{getDiffuseColorAtPoint@{getDiffuseColorAtPoint}!Polygon@{Polygon}}
+\doxysubsubsection{\texorpdfstring{getDiffuseColorAtPoint()}{getDiffuseColorAtPoint()}}
+{\footnotesize\ttfamily Color Polygon\+::get\+Diffuse\+Color\+At\+Point (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_point3}{Point3}} \&}]{intersection,  }\item[{const \mbox{\hyperlink{class_scene}{Scene}} \&}]{scene }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Calculates diffuse at some point in the polygon
+
+
+\begin{DoxyParams}{Parameters}
+{\em intersection} & point that is inside the polygon \\
+\hline
+{\em scene} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Color 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_scene_object_a2598b362db74aa0ede13e897da80e731}{Scene\+Object}}.
+
+\mbox{\Hypertarget{class_polygon_a2dd10602fcfae9e913f7646a13b471f9}\label{class_polygon_a2dd10602fcfae9e913f7646a13b471f9}} 
+\index{Polygon@{Polygon}!getNormal@{getNormal}}
+\index{getNormal@{getNormal}!Polygon@{Polygon}}
+\doxysubsubsection{\texorpdfstring{getNormal()}{getNormal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector3}{Vector3}} Polygon\+::get\+Normal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_point3}{Point3}} \&}]{point,  }\item[{const \mbox{\hyperlink{class_scene}{Scene}} \&}]{scene }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Returns an interpolated normal from a point in the polygon.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & Point at which to calculate the normal \\
+\hline
+{\em scene} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new normal vector 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_scene_object_a365a2309f24ff7cde3ff233643b1a9a2}{Scene\+Object}}.
+
+\mbox{\Hypertarget{class_polygon_a86bdf30f5759b0e80cf9be9f8b8b736d}\label{class_polygon_a86bdf30f5759b0e80cf9be9f8b8b736d}} 
+\index{Polygon@{Polygon}!Intersect@{Intersect}}
+\index{Intersect@{Intersect}!Polygon@{Polygon}}
+\doxysubsubsection{\texorpdfstring{Intersect()}{Intersect()}}
+{\footnotesize\ttfamily bool Polygon\+::\+Intersect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ray}{Ray}} \&}]{ray,  }\item[{\mbox{\hyperlink{class_point3}{Point3}} $\ast$}]{intersection,  }\item[{const \mbox{\hyperlink{class_scene}{Scene}} \&}]{scene }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Tests if a ray intersects the polygon, and sets the intersection point.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & ray to test \\
+\hline
+{\em intersection} & point that is set if intersection exists \\
+\hline
+{\em scene} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns true if the ray intersects the polygon 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_scene_object_ac53e9ddb9069d610276482301580a620}{Scene\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Polygon.\+h\item 
+Polygon.\+cpp\end{DoxyCompactItemize}

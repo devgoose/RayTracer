@@ -2,23 +2,25 @@
 #include "Light.h"
 #include "Vector3.h"
 
-/*
-Inherits from the Light class.
-
-Directional Lights have a single direction.
-*/
+/**
+ * Directional lights are lights with a direction. Duh
+ */
 class DirectionalLight :
-	public Light
+  public Light
 {
 private:
-	Vector3 direction;
+  Vector3 direction;
 
 public:
-	DirectionalLight();
+  DirectionalLight();
 
-	DirectionalLight(const Color& color, const Vector3& direction_);
+  DirectionalLight(const Color& color, const Vector3& direction_);
 
-	Vector3 getDirection() const{  return direction; }
-	bool isPointLight() { return false; }
+  Vector3 getDirection() const{  return direction; }
+
+  /**
+   * Easy way to tell what type a light is. 
+   */
+  bool isPointLight() { return false; }
 };
 

@@ -5,34 +5,46 @@
 #include "Point3.h"
 class Scene;
 
-/*
-Class that holds the information for the ViewWindows from
-which to shoot rays through. 
-*/
+/**
+ * Class for the projection plane from which rays are shot through. 
+ */
 class ViewWindow
 {
 private:
-	Point3 ul;
-	Point3 ur;
-	Point3 ll;
-	Point3 lr;
-	std::vector< std::vector <Point3> > view_lattice;
+  Point3 ul;
+  Point3 ur;
+  Point3 ll;
+  Point3 lr;
+  std::vector< std::vector <Point3> > view_lattice;
 
 public:
-	ViewWindow(const Scene& scene);
+  ViewWindow(const Scene& scene);
 
-	Point3 getPoint(int x, int y);
+  /**
+   * Retrieves a point in the view lattice.
+   * 
+   * @param x
+   * @param y
+   * 
+   * @return point
+   */
+  Point3 getPoint(int x, int y);
 
-	/*
-	Fills the four corners with the points at each corner 
-	of the window.
-	*/
-	void fillCorners(const Scene& scene);
+  /**
+   * Fills in the four corners of the windows from the settings 
+   * in the scene.
+   * 
+   * @param scene
+   */
+  void fillCorners(const Scene& scene);
 
-	/*
-	Loops through every point in the point lattice and fills it in.
-	*/
-	void fillLattice(const Scene& scene);
+  /**
+   * Fills in the lattice of points given the four corners
+   * and the scene. fillCorners() should be called before this.
+   * 
+   * @param scene
+   */
+  void fillLattice(const Scene& scene);
 
 };
 

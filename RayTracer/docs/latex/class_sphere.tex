@@ -1,0 +1,117 @@
+\hypertarget{class_sphere}{}\doxysection{Sphere Class Reference}
+\label{class_sphere}\index{Sphere@{Sphere}}
+
+
+{\ttfamily \#include $<$Sphere.\+h$>$}
+
+Inheritance diagram for Sphere\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sphere}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sphere_ac709ee1b1f5cda5ba9604ade44ea6fdf}\label{class_sphere_ac709ee1b1f5cda5ba9604ade44ea6fdf}} 
+{\bfseries Sphere} (const \mbox{\hyperlink{class_sphere}{Sphere}} \&sphere)
+\item 
+\mbox{\Hypertarget{class_sphere_af61e6d3e406d45bfdf4f84539319b019}\label{class_sphere_af61e6d3e406d45bfdf4f84539319b019}} 
+{\bfseries Sphere} (const \mbox{\hyperlink{class_point3}{Point3}} \&pos\+\_\+, float radius\+\_\+, const int mtl\+\_\+index\+\_\+)
+\item 
+\mbox{\Hypertarget{class_sphere_afbf512ee03d4eab0ec180c06c48b4996}\label{class_sphere_afbf512ee03d4eab0ec180c06c48b4996}} 
+{\bfseries Sphere} (const \mbox{\hyperlink{class_point3}{Point3}} \&pos\+\_\+, float radius\+\_\+, const int mtl\+\_\+index\+\_\+, const int tex\+\_\+index\+\_\+)
+\item 
+\mbox{\Hypertarget{class_sphere_a910e09c82eea0d1168247360bb466c23}\label{class_sphere_a910e09c82eea0d1168247360bb466c23}} 
+\mbox{\hyperlink{class_point3}{Point3}} {\bfseries get\+Pos} () const
+\item 
+\mbox{\Hypertarget{class_sphere_a925a4eccca10735eb3f9ec03ad87abf1}\label{class_sphere_a925a4eccca10735eb3f9ec03ad87abf1}} 
+float {\bfseries get\+Radius} () const
+\item 
+bool \mbox{\hyperlink{class_sphere_a099c71b086dbfff5287ae3bb6c2d5da3}{Intersect}} (const \mbox{\hyperlink{class_ray}{Ray}} \&ray, \mbox{\hyperlink{class_point3}{Point3}} $\ast$intersection, const \mbox{\hyperlink{class_scene}{Scene}} \&scene) const override
+\item 
+\mbox{\hyperlink{class_vector3}{Vector3}} \mbox{\hyperlink{class_sphere_a037f3679c5df9d8dc90c27ab0cc1349d}{get\+Normal}} (const \mbox{\hyperlink{class_point3}{Point3}} \&point, const \mbox{\hyperlink{class_scene}{Scene}} \&scene) const override
+\item 
+Color \mbox{\hyperlink{class_sphere_a0a57c2edbf89451a4e8cd25c75a603e6}{get\+Diffuse\+Color\+At\+Point}} (const \mbox{\hyperlink{class_point3}{Point3}} \&intersection, const \mbox{\hyperlink{class_scene}{Scene}} \&scene) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_sphere}{Sphere}} object. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sphere_a0a57c2edbf89451a4e8cd25c75a603e6}\label{class_sphere_a0a57c2edbf89451a4e8cd25c75a603e6}} 
+\index{Sphere@{Sphere}!getDiffuseColorAtPoint@{getDiffuseColorAtPoint}}
+\index{getDiffuseColorAtPoint@{getDiffuseColorAtPoint}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{getDiffuseColorAtPoint()}{getDiffuseColorAtPoint()}}
+{\footnotesize\ttfamily Color Sphere\+::get\+Diffuse\+Color\+At\+Point (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_point3}{Point3}} \&}]{intersection,  }\item[{const \mbox{\hyperlink{class_scene}{Scene}} \&}]{scene }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Calculates the diffuse color at a point on the object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em intersection} & point at which to calculate color \\
+\hline
+{\em scene} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+diffuse color 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_scene_object_a2598b362db74aa0ede13e897da80e731}{Scene\+Object}}.
+
+\mbox{\Hypertarget{class_sphere_a037f3679c5df9d8dc90c27ab0cc1349d}\label{class_sphere_a037f3679c5df9d8dc90c27ab0cc1349d}} 
+\index{Sphere@{Sphere}!getNormal@{getNormal}}
+\index{getNormal@{getNormal}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{getNormal()}{getNormal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector3}{Vector3}} Sphere\+::get\+Normal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_point3}{Point3}} \&}]{point,  }\item[{const \mbox{\hyperlink{class_scene}{Scene}} \&}]{scene }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the normal vector at a certain point.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & point at which to get the normal vector \\
+\hline
+{\em scene} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unit normal vector at point 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_scene_object_a365a2309f24ff7cde3ff233643b1a9a2}{Scene\+Object}}.
+
+\mbox{\Hypertarget{class_sphere_a099c71b086dbfff5287ae3bb6c2d5da3}\label{class_sphere_a099c71b086dbfff5287ae3bb6c2d5da3}} 
+\index{Sphere@{Sphere}!Intersect@{Intersect}}
+\index{Intersect@{Intersect}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{Intersect()}{Intersect()}}
+{\footnotesize\ttfamily bool Sphere\+::\+Intersect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ray}{Ray}} \&}]{ray,  }\item[{\mbox{\hyperlink{class_point3}{Point3}} $\ast$}]{intersection,  }\item[{const \mbox{\hyperlink{class_scene}{Scene}} \&}]{scene }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Tests if a ray intersects this object, and if so, sets the intersection point.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & ray to test \\
+\hline
+{\em intersection} & point to set if intersection is found \\
+\hline
+{\em scene} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if intersection is found and the point is set 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_scene_object_ac53e9ddb9069d610276482301580a620}{Scene\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Sphere.\+h\item 
+Sphere.\+cpp\end{DoxyCompactItemize}

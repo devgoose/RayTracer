@@ -1,0 +1,58 @@
+\hypertarget{class_material}{}\doxysection{Material Class Reference}
+\label{class_material}\index{Material@{Material}}
+
+
+{\ttfamily \#include $<$Material.\+h$>$}
+
+Inheritance diagram for Material\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_material}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_material_a2c52c8c66916fe4e86f2231a093e7e7c}\label{class_material_a2c52c8c66916fe4e86f2231a093e7e7c}} 
+{\bfseries Material} (const Color \&diff, const Color \&spec, float ka\+\_\+, float kd\+\_\+, float ks\+\_\+, float exponent\+\_\+, float opacity\+\_\+, float refraction\+\_\+index\+\_\+)
+\item 
+\mbox{\Hypertarget{class_material_a65005757f3572b988460eff5544e9527}\label{class_material_a65005757f3572b988460eff5544e9527}} 
+{\bfseries Material} (const \mbox{\hyperlink{class_material}{Material}} \&m)
+\item 
+\mbox{\Hypertarget{class_material_ad84e7a0636689b67a57f5da5510ed22a}\label{class_material_ad84e7a0636689b67a57f5da5510ed22a}} 
+Color {\bfseries get\+Diffuse} () const
+\item 
+\mbox{\Hypertarget{class_material_a33ab4584fc91018c886166abbf6bcdcf}\label{class_material_a33ab4584fc91018c886166abbf6bcdcf}} 
+Color {\bfseries get\+Specular} () const
+\item 
+\mbox{\Hypertarget{class_material_a878a44701dc6b8daeb1dfe9d321ed51e}\label{class_material_a878a44701dc6b8daeb1dfe9d321ed51e}} 
+float {\bfseries get\+Ambient\+Coef} () const
+\item 
+\mbox{\Hypertarget{class_material_a05ace0be79f3943f7db68931078f06bc}\label{class_material_a05ace0be79f3943f7db68931078f06bc}} 
+float {\bfseries get\+Diffuse\+Coef} () const
+\item 
+\mbox{\Hypertarget{class_material_aa77e1e0e3cbe4967136f762fc50285bc}\label{class_material_aa77e1e0e3cbe4967136f762fc50285bc}} 
+float {\bfseries get\+Specular\+Coef} () const
+\item 
+\mbox{\Hypertarget{class_material_a1dd77d90a700d5117fca181e58303f82}\label{class_material_a1dd77d90a700d5117fca181e58303f82}} 
+float {\bfseries get\+Exponent} () const
+\item 
+\mbox{\Hypertarget{class_material_a27b6fa79c7e1d1e7fe7d51f0a30e152b}\label{class_material_a27b6fa79c7e1d1e7fe7d51f0a30e152b}} 
+float {\bfseries get\+Opacity} () const
+\item 
+\mbox{\Hypertarget{class_material_afc696bc8e30c87cfb47144d85bf40a47}\label{class_material_afc696bc8e30c87cfb47144d85bf40a47}} 
+float {\bfseries get\+Refraction\+Index} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Extends from the Color class.
+
+Holds more detailed information for basic material properties, such as diffuse, ambient, and specular values.
+
+\mbox{\hyperlink{class_material}{Material}} properties are based on the Phong shading model. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Material.\+h\item 
+Material.\+cpp\end{DoxyCompactItemize}

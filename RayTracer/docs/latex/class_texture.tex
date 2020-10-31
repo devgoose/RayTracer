@@ -1,0 +1,76 @@
+\hypertarget{class_texture}{}\doxysection{Texture Class Reference}
+\label{class_texture}\index{Texture@{Texture}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_texture_ae97dcc52cd6757bfe077cf3e7d502fa9}{Texture}} (std\+::string filename)
+\item 
+\mbox{\Hypertarget{class_texture_a23c3c1315267a5521d824982bb8d208c}\label{class_texture_a23c3c1315267a5521d824982bb8d208c}} 
+int {\bfseries get\+Height} () const
+\item 
+\mbox{\Hypertarget{class_texture_a2c2b502138a1a1786c4bf74016620885}\label{class_texture_a2c2b502138a1a1786c4bf74016620885}} 
+int {\bfseries get\+Width} () const
+\item 
+Color $\ast$ \mbox{\hyperlink{class_texture_a934d04b7a5e903675a52ae22fbebd75b}{get\+Color\+At\+Coord}} (int i, int j) const
+\item 
+bool \mbox{\hyperlink{class_texture_aeda06e028f4e54870d2aa21149eb6d42}{load}} (std\+::string filename)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_texture_ae97dcc52cd6757bfe077cf3e7d502fa9}\label{class_texture_ae97dcc52cd6757bfe077cf3e7d502fa9}} 
+\index{Texture@{Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{Texture()}{Texture()}}
+{\footnotesize\ttfamily Texture\+::\+Texture (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+Constructor that initializes the texture with the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & filepath for a .ppm texture file \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_texture_a934d04b7a5e903675a52ae22fbebd75b}\label{class_texture_a934d04b7a5e903675a52ae22fbebd75b}} 
+\index{Texture@{Texture}!getColorAtCoord@{getColorAtCoord}}
+\index{getColorAtCoord@{getColorAtCoord}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{getColorAtCoord()}{getColorAtCoord()}}
+{\footnotesize\ttfamily Color $\ast$ Texture\+::get\+Color\+At\+Coord (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption}) const}
+
+Retrieves a color at the texture coordinates.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & \\
+\hline
+{\em j} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+color 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_texture_aeda06e028f4e54870d2aa21149eb6d42}\label{class_texture_aeda06e028f4e54870d2aa21149eb6d42}} 
+\index{Texture@{Texture}!load@{load}}
+\index{load@{load}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily bool Texture\+::load (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+Loads the texture from a file
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & file path for a .ppm texture file\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successfully loaded 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Texture.\+h\item 
+Texture.\+cpp\end{DoxyCompactItemize}
