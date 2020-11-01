@@ -38,7 +38,7 @@ After compilation, can be run on the command line with a scene input file.
 
 ### Documentation
 
-Documentation can be viewed [here](https://pages.github.umn.edu/walte735/RayTracer/).
+Documentation can be viewed [here](https://devgoose.github.io/RayTracer/).
 
 ### Sources
 
