@@ -1,12 +1,14 @@
 # Ray Tracer
 
+![](docs/images/reflections.png)
+
 This is an implementation of a ray tracer in C++. It takes a configuration file as input that describes a scene with objects, materials, lights, and textures, and uses a ray-tracing algorithm to produce a high definition image in .ppm format which can be viewed in many different image software.
 
 This began as a project at the University of Minnesota's 5611 graphics course and has been expanded to what it is now.
 
 ### Features
 
-- High quality, realistic recursive ray tracing algorithm
+- High quality realistic recursive ray tracing algorithm
 - Reflection
 - Refraction
 - Transparency
